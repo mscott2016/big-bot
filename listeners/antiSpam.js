@@ -31,11 +31,13 @@ module.exports = class AntiSpamListener extends Listener {
         if(difference > DIFF) {
             clearTimeout(timer);
             console.log('Cleared Timeout');
+            console.log('Cldfffeared Timeout');
             userData.msgCount = 1;
             userData.lastMessage = message;
             userData.timer = setTimeout(() => {
                 usersMap.delete(message.author.id);
-                console.log('Removed from map.')
+                console.log('Removed from m555555ap.')
+                
             }, TIME);
             usersMap.set(message.author.id, userData)
         }
@@ -74,7 +76,8 @@ module.exports = class AntiSpamListener extends Listener {
     else {
         let fn = setTimeout(() => {
             usersMap.delete(message.author.id);
-            console.log('Removed from map.')
+            console.log('Removed from maprrr rrr.')
+            
         }, TIME);
         usersMap.set(message.author.id, {
             msgCount: 1,
