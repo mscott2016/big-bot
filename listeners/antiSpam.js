@@ -17,7 +17,7 @@ module.exports = class AntiSpamListener extends Listener {
    async exec(message) {
     if (message.author.bot) return;
     const usersMap = new Map();
-    const LIMIT = 20;
+    const LIMIT = 10;
     const TIME = 7000;
     const DIFF = 3000;
 
