@@ -42,6 +42,7 @@ module.exports = class AntiSpamListener extends Listener {
             usersMap.set(message.author.id, userData)
         }
         else {
+            console.log('Removeyyd fromjj m555555ap.')
             ++msgCount;
             if(parseInt(msgCount) === LIMIT) {
                 let muterole = message.guild.roles.cache.find(role => role.name === 'muted');
