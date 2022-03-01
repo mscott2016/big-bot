@@ -24,7 +24,7 @@ class ModCommand extends Command {
             message.author.send("https://forms.gle/CheGJXNDEuYxtuy38");
         }
         else {
-            message.channel.send(`${message.author}  you are need to be LVL 1 with at least 1 invite`)
+            message.channel.send(`${message.author}  you need to be LVL 1 with at least 1 invite`)
         }
        
     }
