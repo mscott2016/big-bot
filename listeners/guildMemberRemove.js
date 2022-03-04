@@ -10,12 +10,19 @@ module.exports = class GuildMemberRemoveListener extends Listener {
     }
 
     async exec(member) {
-       let usrLeave = await Discordvv.fetch(member.user.id,member.guild.id);
-       let usrInviter = await Discordvv.removeInvitee(usrLeave.inviter, member.guild.id, member.user.id,1 );
-       const randomAmountOfXp = Math.floor(Math.random() * 3) + 1; // Min 1, Max 30
-      await Discordvv.subtractXp( usrLeave.inviter, member.guild.id, randomAmountOfXp);
-      await Discordvv.deleteUser(member.user.id,member.guild.id)
+        try{
+        let usrLeave = await Discordvv.fetch(member.user.id,member.guild.id);
+        console.log(usrLeave,member.user.id,member.guild.id);
+        await Discordvv.removeInvitee(usrLeave.inviter, member.guild.id, member.user.id,1);
+        const randomAmountOfXp = Math.floor(Math.random() * 3) + 1; 
+        await Discordvv.subtractXp( usrLeave.inviter, member.guild.id, randomAmountOfXp);
+        await Discordvv.deleteUser(member.user.id,member.guild.id)
+        }
+        catch (error) {
+        console.error(error);
+        }
 
+       
         console.log(
             `${member.user.tag} has been unbanned in ${member.guild.name}`
         );
