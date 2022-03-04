@@ -193,7 +193,7 @@ client.on('guildMemberAdd',  member => {
      
     let utu = await Discordvv.appendInviter(member.user.id, member.guild.id, inviter.id );
     let ut = await Discordvv.appendInvitee(inviter.id, member.guild.id,member.user.id , 1 );
-    console.log(ut,utu )
+    console.log(ut, " \n hhih  jhninni ]]n  l-" ,utu )
     memberUpdate()
     // A real basic message with the information we need. 
     inviter
