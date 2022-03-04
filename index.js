@@ -187,13 +187,13 @@ client.on('guildMemberAdd',  member => {
     // Get the log channel (change to your liking)
     console.log(invite.code)
     const logChannel = member.guild.channels.cache.get('935663398492962866');
-     member.guild
     const randomAmountOfXp = Math.floor(Math.random() * 3) + 1; // Min 1, Max 30
 
-      await Discordvv.appendXp( inviter.id, member.guild.id, randomAmountOfXp);
+    await Discordvv.appendXp(inviter.id, member.guild.id, randomAmountOfXp);
      
-      await Discordvv.appendInviter(member.user.id, member.guild.id, inviter.id );
-    await Discordvv.appendInvitee(inviter.id, member.guild.id,member.user.id , 1 );
+    let utu = await Discordvv.appendInviter(member.user.id, member.guild.id, inviter.id );
+    let ut = await Discordvv.appendInvitee(inviter.id, member.guild.id,member.user.id , 1 );
+    console.log(ut,utu )
     memberUpdate()
     // A real basic message with the information we need. 
     inviter
