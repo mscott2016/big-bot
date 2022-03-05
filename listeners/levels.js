@@ -18,7 +18,7 @@ module.exports = class LevelListener extends Listener {
      if (!message.guild) return;
      if (message.author.bot) return;
 
-     const randomAmountOfXp = Math.floor(Math.random() * 1) + 1; // Min 1, Max 30
+     const randomAmountOfXp = Math.floor(Math.random() * 5) + 1; // Min 1, Max 30
      const hasLeveledUp = await Discordvv.appendXp(message.author.id, message.guild.id, randomAmountOfXp);
      if (hasLeveledUp) {
 
