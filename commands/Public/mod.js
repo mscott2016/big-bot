@@ -19,7 +19,8 @@ class ModCommand extends Command {
     }
 
     async exec(message){
-        const user = await Discordvv.fetch(message.author.id, message.guild.id);
+        let user = await Discordvv.fetch(message.author.id, message.guild.id);
+        console.log(user);
         if (user.level > 1 && user.invites > 3){
             message.author.send("https://forms.gle/CheGJXNDEuYxtuy38");
         }
