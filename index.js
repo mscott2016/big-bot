@@ -194,7 +194,7 @@ client.on('guildMemberAdd',  member => {
      await Discordvv.appendInviter(member.user.id, member.guild.id, inviter.id );
     
      await Discordvv.appendInvitee(inviter.id, member.guild.id,member.user.id , 1 );
-    
+    //fuck
     memberUpdate()
     // A real basic message with the information we need. 
     inviter
