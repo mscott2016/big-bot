@@ -39,7 +39,7 @@ mongoose.connect(mySecretUrl, { useNewUrlParser: true, useUnifiedTopology: true 
 mongoCurrency.connect(mySecretUrl);
 
 
-
+let G_oldTime = new Date()
 
 client.login(mySecret);
 
@@ -203,6 +203,22 @@ client.on('guildMemberAdd',  member => {
   });
 });
 
+function timeChanged(delta) {
+  // Whatever
+}
+function timeChecker() {
+  var oldTime = G_oldTime || new Date(),
+      newTime = new Date(),
+      timeDiff = newTime - oldTime;
+
+      G_oldTime = newTime;
+
+  if (Math.abs(timeDiff) >= 8400) { // day second leniency
+    timeChanged(timeDiff);
+  }
+}
+
+setInterval(timeChecker, 1000);
 
 function memberUpdate (){
   function pause() {
