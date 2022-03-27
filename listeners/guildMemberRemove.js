@@ -13,6 +13,12 @@ module.exports = class GuildMemberRemoveListener extends Listener {
         try{
         let usrLeave = await Discordvv.fetch(member.user.id,member.guild.id);
         console.log(usrLeave,member.user.id,member.guild.id);
+        if (usrLeave === false){
+            console.log(
+                `${member.user.tag} not saved ${member.guild.name}`
+            ); 
+            return;
+        }
         await Discordvv.removeInvitee(usrLeave.inviter, member.guild.id, member.user.id,1);
         const randomAmountOfXp = Math.floor(Math.random() * 3) + 1; 
         await Discordvv.subtractXp( usrLeave.inviter, member.guild.id, randomAmountOfXp);
