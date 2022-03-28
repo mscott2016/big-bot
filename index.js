@@ -145,7 +145,7 @@ client.on("ready", () => {
   var stream = T.stream('statuses/filter', { follow: [process.env['TWITID']] });
 
   //    var stream = T.stream('statuses/sample')
-  //console.log("ndeeeijj8dn  ")
+  console.log("ndeeei9922222jj8dn  ")
   stream.on('tweet', function (tweet) {
     //  console.log(tweet)
     //    only show owner tweets
@@ -153,7 +153,7 @@ client.on("ready", () => {
       //console.log("ndeeedn")
       var url = "https://twitter.com/" + tweet.user.screen_name + "/status/" + tweet.id_str;
       try {
-        //console.log("nd331dn")
+        console.log(`${url}`);
         let channel = client.channels.fetch('935647726291546203').then(channel => {
           channel.send(url)
         }).catch(err => {
