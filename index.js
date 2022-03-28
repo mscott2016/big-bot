@@ -137,7 +137,7 @@ client.on("ready", () => {
     consumer_key: `${process.env['TWITCONKEY']}`,
     consumer_secret: `${process.env['TWITCONSEC']}`,
     access_token: `${process.env['TWITACCTOK']}`,
-    access_token_secret: `${process.env['TIWTACCSEC']}`,
+    access_token_secret: `${process.env['TWITACCTOK']}`,// process.env['TIWTACCSEC']
     timeout_ms: 60 * 1000,
     strictSSL: true,
   });
