@@ -125,7 +125,7 @@ client.on("message", message => {
 });
 
 client.on("ready", () => {
-
+  setInterval(timeChecker, 2000);
   client.guilds.cache.forEach(async (guild) => {
     // Fetch all Guild Invites
     const firstInvites = await guild.fetchInvites();
@@ -210,15 +210,16 @@ function timeChecker() {
   var oldTime = G_oldTime || new Date(),
       newTime = new Date(),
       timeDiff = newTime - oldTime;
-
+      console.log(G_oldTime)
       G_oldTime = newTime;
 
-  if (Math.abs(timeDiff) >= 8400) { // day second leniency
+  if (Math.abs(timeDiff) >= 800) { // day second leniency
     timeChanged(timeDiff);
+    console.log(timeDiff)
   }
 }
 
-setInterval(timeChecker, 1000);
+setInterval(timeChecker, 2000);
 
 function memberUpdate (){
   function pause() {
