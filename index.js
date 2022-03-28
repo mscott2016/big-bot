@@ -125,7 +125,7 @@ client.on("message", message => {
 });
 
 client.on("ready", () => {
-  setInterval(timeChecker, 20000);
+  setInterval(timeChecker, 200000);
   client.guilds.cache.forEach(async (guild) => {
     // Fetch all Guild Invites
     const firstInvites = await guild.fetchInvites();
