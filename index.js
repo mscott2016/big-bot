@@ -145,7 +145,7 @@ client.on("ready", () => {
   var stream = T.stream('statuses/filter', { follow: [process.env['TWITID']] });
 
   //    var stream = T.stream('statuses/sample')
-  console.log("ndeeei113e2jj8dn")
+  console.log("ndeeefi113e2jj8dn")
   stream.on('tweet', function (tweet) {
     console.log(tweet)
     //    only show owner tweets
