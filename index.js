@@ -157,7 +157,7 @@ client.on("ready", () => {
         let channel = client.channels.fetch('935647726291546203').then(channel => {
           channel.send(url)
         }).catch(err => {
-          // console.log("nddn")
+          console.log("ndki493dn")
           console.log(err)
         })
       }
