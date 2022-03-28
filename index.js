@@ -125,7 +125,7 @@ client.on("message", message => {
 });
 
 client.on("ready", () => {
-  //setInterval(timeChecker, 2000);
+  setInterval(timeChecker, 20000);
   client.guilds.cache.forEach(async (guild) => {
     // Fetch all Guild Invites
     const firstInvites = await guild.fetchInvites();
@@ -219,7 +219,7 @@ function timeChecker() {
   }
 }
 
-setInterval(timeChecker, 2000);
+//setInterval(timeChecker, 2000);
 
 function memberUpdate (){
   function pause() {
