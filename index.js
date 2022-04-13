@@ -125,7 +125,15 @@ client.on("message", message => {
 });
 
 client.on("ready", () => {
-  setInterval(timeChecker, 200000);
+  
+  
+  client.channels.cache.get('935648492326649857').messages.fetch("963860501752852560").then(msg => {
+    let totalReactionsCount = msg.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
+       console.log(`heyr boy  -- ${tot + arr}`);
+    },0);
+  });
+  setInterval(timeChecker, 86400000);
+  setInterval(memberUpdate, 1000000);
   client.guilds.cache.forEach(async (guild) => {
     // Fetch all Guild Invites
     const firstInvites = await guild.fetchInvites();
@@ -203,8 +211,9 @@ client.on('guildMemberAdd',  member => {
   });
 });
 
-function timeChanged(delta) {
+function qotd() {  // question of the day
   // Whatever
+  
 }
 function timeChecker() {
   var oldTime = G_oldTime || new Date(),
@@ -214,7 +223,7 @@ function timeChecker() {
       G_oldTime = newTime;
 
   if (Math.abs(timeDiff) >= 800) { // day second leniency
-    timeChanged(timeDiff);
+    qotd();
     console.log(timeDiff)
   }
 }
