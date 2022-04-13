@@ -133,7 +133,7 @@ client.on("ready", () => {
     },0);
   });
   
-  console.log(`heyr boy  -- ${totalReactionsCount}`);
+  
   setInterval(timeChecker, 86400000);
   setInterval(memberUpdate, 1000000);
   client.guilds.cache.forEach(async (guild) => {
