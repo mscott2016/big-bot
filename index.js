@@ -133,7 +133,7 @@ client.on("ready", () => {
       console.log(`heyr boy  -- ${tot + arr}`);
       return tot + arr ;
     },0);
-    console.log(`heyr boy  -- ${totalReactionsCount}`);
+    console.log(` done-- ${totalReactionsCount}`);
     
   });
   
