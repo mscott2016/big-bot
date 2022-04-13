@@ -129,8 +129,12 @@ client.on("ready", () => {
   
   client.channels.cache.get('935648492326649857').messages.fetch("963860501752852560").then(msg => {
     let totalReactionsCount = msg.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
-       console.log(`heyr boy  -- ${tot + arr}`);
+      
+      console.log(`heyr boy  -- ${tot + arr}`);
+      return tot + arr ;
     },0);
+    console.log(`heyr boy  -- ${totalReactionsCount}`);
+    
   });
   
   
