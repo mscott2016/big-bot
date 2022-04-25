@@ -19,18 +19,6 @@ console.log(Discordvv)
 Discordvv.setURL(mySecretUrl)
 let invites = new Map()
 Levels.setURL(mySecretUrl)
-// ---------------------------------------EXPRESS SERVER!!!!!-------------------------------------------------------------------------
-//const express = require('express');
-///const app = express();
-//const PORT = process.env.PORT || 3000
-// const PORT2 = process.env.PORT2
-
-//app.get('/', (req, res) => res.send('Hello World!'));
-
-//app.listen(PORT, () => console.log(`App listening at http://localhost:${PORT}`));
-
-
-// -------------------------------------------------Mongoose!!--------------------------------------------------------------------------
 
 mongoose.connect(mySecretUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 // .then(()=> app.listen(PORT2, () => console.log(`Mongo Server running on port: ${PORT2}`)))

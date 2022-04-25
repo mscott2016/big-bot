@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "discord-qotd",
+  "private_key_id": "62446f946606d6a747782ab383c43383853e3414",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDX836nw/jmAS0h\n0gTlW2rJRZjGOji8MQwn/ZTN87+9YhzQhdn7+dIWlGRWy7l9ePoRa20ygQ+ppy2z\ndHydDO+E3zkYqKRmgSSV+G3XnJhIrmfn+03BMBeHkhe7tVGFbuijnCcG+6sANdeU\nkD9g+X4TneoYya3CjxJJc9pwMvDcElIjfu7utELa8WeAjfLPxZ0W8mY7jjPfoKLf\nrZVUxrjI0ig8N/0JjPm9aX7ccwZ5rVPQwqXgrjKLdGBq3PRTQercjmydEohp3pKL\nz8iSga8XPoZE0qp7C4rQWMbeNTsYTp3wg+bYH6gkXRxJC7ou3BCcnzgUtkSilot/\nScetPy95AgMBAAECggEAIpGk9cAmSNNpYR+YjwqaRovwj9LkICQN2Rz7xBg/2lYp\nXKwAoBh2rAynH0nPcKl8BmvW+B223yaW50I/bHiUowWEw1DDuHD15Vf2ZWx46DGb\nCoStBr7nFVmqmO7GlQCTFxW5HaIN1qPH1c1dh+2IZCWEQuGOAjYa7E0ya4GMEv5E\nTwfXwbt4gs1G9VdO55OcKnwURc3z0FoO7hCn6/PRSVCvLlQu53ClxmPvvTkf+ZyN\nAsB1IUbQep1zuMRyLw2K6/q5SDjv/Ffgi0IJnsWt1pCyjX792zCCvkcie6J5Oqzj\nwICc1DP0qE+jSGlflaMcWfUeNyMWg1fOpXJX6jsJcQKBgQD9tHNr0QC9mqnPx1sd\n6YPmabg1qUYPTgkAYVBJtPrheFPOMcxjw3Ki2NcA3dUMXXfhuaQ2n9+9PfSTehtT\nlACkyl0Kax8CUGqu9UEwU1TYIPYQ3GnSV2lrz36B8T7e/Knd2G8Rv2eatM43P8B2\nXlZK89D3+zkCg5DEiNu30AUtjQKBgQDZ55xkKRElAOOGxgDHBICgvLEt3ZrZn4dm\nj0K420UczsYhQdo7Kj80lTlyU5y0CNIjp8MA8FSZ62GItR01lhh/sg7luPYhNxqz\n886H1DbnHDDC88ec0Fc7wP7zelLMIiGtcQRtH+w6Iiwy80R7NN7W1i6C9FedX6fB\nzsCzyCtAnQKBgQDdcE12A5yz4XTqKET9XL6FtCzWmYLPBPuSW13ql46Kka4EQS72\nvLcoMD+pP/Yers5eNNyB2RU+Zf89YczMLFhLfV2sJEeSi4IyZ1qYxYM+ibZ8jQXI\nVAdt1FPFMz3+/2V8ftajFP9m5v0+9+QS7NBA54Kzj5D5AsCu6g1s6KI8WQKBgHBX\nlK2e7pPhTWyikKwKijZUkhRPeBJSyP/7RC8B/TPI9yUWSmjOcx+s/50NtnCrS4vO\nZh8JyNRCIlrU5WZHKAJNzphpL5wYSNAWFpi4tEWapxkbjgIu94p7CfaFTkKoJizB\nY8LO/n9KNvddrCTJMUoZyokBaFpegqLM8VS/Em2RAoGBANYWvrZFsxXVBoJrOV9t\n2B5sFN/UalEAX59+rpG0FJqner3RKDMcJgXFocQ2wBfF+wssDIK0sDWHqNi7U2VN\nnN+Eyq9cYEU1cKSkrmTKSzfIOQF622HovWNq0ox8krdVIABAjCcVQgQHynbgEdG3\nUx2rGTwrtglDkhtRRFBqYjL6\n-----END PRIVATE KEY-----\n",
+  "client_email": "big-bot2@discord-qotd.iam.gserviceaccount.com",
+  "client_id": "117060555423021025675",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/big-bot2%40discord-qotd.iam.gserviceaccount.com"
+}
