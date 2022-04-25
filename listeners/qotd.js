@@ -13,10 +13,7 @@ module.exports = class QotdListener extends Listener {
     }
 
    async exec(message) {
-    console.log(message.channel.id); 
-
-    if(!('951655353035157504' === message.channelId)) return;
-   
+    if(!('951655353035157504' === message.channel.id)) return;
     if (message.author.bot) {
          console.log(message.content);
 
