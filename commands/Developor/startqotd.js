@@ -20,4 +20,4 @@ class QotdCommand extends Command {
     }
 }
 
-module.exports = ClearCommand;
+module.exports = QotdCommand;
