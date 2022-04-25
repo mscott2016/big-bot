@@ -16,6 +16,7 @@ module.exports = class QotdListener extends Listener {
     if(!('935648492326649857' === message.channelId)) return;
      if (message.author.bot) {
          console.log(message.content);
+         
      }
 
      
