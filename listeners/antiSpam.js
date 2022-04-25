@@ -4,6 +4,7 @@ const chalk = require('chalk');
 const Canvacord = require('canvacord');
 const Levels = require("discord-xp");
 const  Discordvv  = require('../schemas/db-setup.js');
+const { ownerID } = require('../config.js');
 
 //
 module.exports = class AntiSpamListener extends Listener {
@@ -16,6 +17,7 @@ module.exports = class AntiSpamListener extends Listener {
  
    async exec(message) {
     if (message.author.bot) return;
+    if (message.author.id === ownerID) return;
     const usersMap = new Map();
     const LIMIT = 10;
     const TIME = 7000;
