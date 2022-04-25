@@ -15,7 +15,7 @@ class QotdCommand extends Command {
 
     async exec(message) {
         if(!message.member.hasPermission(`${ownerID}`)) return message.reply('Only Owners have Access to This Command!')
-        const channel = message.client.channels.cache.get('935648492326649857');
+        const channel = message.client.channels.cache.get('951655353035157504');
         channel.send(`Staring QOTD`);
     }
 }
