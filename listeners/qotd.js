@@ -18,6 +18,7 @@ module.exports = class QotdListener extends Listener {
         if (message.content === 'Staring QOTD'){
             console.log(message.content);
          }
+         
      }
 
 
