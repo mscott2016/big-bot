@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const chalk = require('chalk');
 const Canvacord = require('canvacord');
 const Discordvv = require('../schemas/db-setup.js');
-const GoogleSheet = require('../googlesheet');
+const GoogleSheet = require('../sheets-class');
 const PromiseTimers = require('promise-timers');
 
 module.exports = class QotdListener extends Listener {
