@@ -13,7 +13,7 @@ class GoogleSheet {
       keyFile: "sheets.json",
       scopes: "https://www.googleapis.com/auth/spreadsheets",
     });
-    this.client = await auth.getClient();
+    this.client = await this.auth.getClient();
   
   // Instance of Google Sheets API
   this.googleSheets = google.sheets({ version: "v4", auth: client });
