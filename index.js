@@ -127,7 +127,7 @@ client.on("ready", () => {
   
   
   setInterval(timeChecker, 86400000);
-  setInterval(memberUpdate, 1000000);
+  setInterval(memberUpdate, 10000);
   client.guilds.cache.forEach(async (guild) => {
     // Fetch all Guild Invites
     const firstInvites = await guild.fetchInvites();
@@ -231,15 +231,15 @@ function memberUpdate (){
     });
   }
   const PromiseTimers = require('promise-timers');
-const delay = 1000;
+  const delay = 1000;
  
-
+  console.log('timeou33858494496rrt ttdone');
    //const wait = require("timers/promises").setTimeout;
   
     PromiseTimers.setTimeout(delay).then(function (args) {
     // this refers to timeout
     console.log(args);
-    console.log('timeout done');
+    console.log('timeout ttdone');
 
     client.guilds.cache.forEach(async (guild) => {
       // Fetch all Guild Invites
