@@ -35,7 +35,7 @@ module.exports = class QotdListener extends Listener {
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
                 await this.qotd().then(()=> {
                     console.log('tij80395 0ne');
-                  //  setInterval(()=>{this.timeChecker()}, 55000);
+                    setInterval(()=>{this.timeChecker()}, 55000);
                     console.log('timeoutpr390395 09080ne');
                 });
                
