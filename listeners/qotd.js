@@ -64,11 +64,12 @@ module.exports = class QotdListener extends Listener {
          a.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
             console.log(`Collei${tot + arr}`);
             return tot + arr ;
-          },0) > b.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
+          },0) -
+           b.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
             console.log(`Colle878bhbbhb77y7 i${tot + arr}`);
             return tot + arr ;
           },0));
-            console.log(`${ this.mss }Colleceeted ${ hi}`);
+            console.log(`${ this.mss } Colleceeted ${ hi}`);
         });
 
        
