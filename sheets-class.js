@@ -53,7 +53,7 @@ class GoogleSheet {
     return find.data.values;
   }
 
-  async checkOffQuestions(questionNumber){
+  async checkOffQuestions(){
    
     
     // Create client instance for auth
@@ -68,7 +68,7 @@ class GoogleSheet {
       values,
     };
     let valueInputOption = 'USER_ENTERED';
-    let range = `!B${questionNumber}`;
+    let range = `!B${this.questionNumber}`;
     const find = await this.googleSheets.spreadsheets.values.update({
       spreadsheetId: this.spreadsheetId,
       range,
@@ -90,12 +90,14 @@ class GoogleSheet {
     if (!q_s[0].includes('done')){
      console.log(q_s[0][0]);
      this.questionNumber = 0;
+     await this.checkOffQuestions();
      return q_s[0][0];
     }
     for (var i = q_s.length - 1; i >= 0; i--) {
        if (q_s[i].includes('done') && i <  q_s.length - 1){
          console.log(q_s[i+1][0]);
          this.questionNumber = i+1;
+         await this.checkOffQuestions();
          return q_s[i+1][0];
        }
    }
