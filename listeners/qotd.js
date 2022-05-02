@@ -29,13 +29,13 @@ module.exports = class QotdListener extends Listener {
                 console.log(message.content);
                 this.started = false;
                 this.mss =[];
-                const filter = m => m.channel.id.includes('951655353035157504');
+                const filter = m => m.author.id !== message.author.bot;
                 this.collector = new Discord.MessageCollector(message.channel,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
                 this.channelll = message.client.channels.cache.get('951655353035157504');
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
                 await this.qotd().then(()=> {
                     console.log('tij80395 0ne');
-                    setInterval(()=>{this.timeChecker()}, 55000);
+                  //  setInterval(()=>{this.timeChecker()}, 55000);
                     console.log('timeoutpr390395 09080ne');
                 });
                
@@ -84,17 +84,19 @@ module.exports = class QotdListener extends Listener {
            // send who one in q chat with q
        
         });
+        this.collector.resetTimer({ time: 40000});
+       // this.mss.forEach()this.collector.dispose()
         //clear  mss
        this.mss = [];
-       const filter = m => m.channel.id.includes('951655353035157504');
+       const filter = m => m.author.id !== message.author.bot;
        const h = new Discord.MessageCollector(this.channelll,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
         
-       this.collector= h;
+       this.collector= new Discord.MessageCollector(this.channelll,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
     }
 
     winner(msgList){
         
-        if (msgList.length > 0 && msgList.length <5){
+        if (msgList.length > 0 && msgList.length <= 5){
             this.post_chan.send(`QOTD: ${this.qss}: \n
              1: ${msgList[0].author.tag}`);
         }
