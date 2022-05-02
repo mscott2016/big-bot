@@ -68,7 +68,7 @@ module.exports = class QotdListener extends Listener {
             console.log(`Colle878bhbhb77y7 i${tot + arr}`);
             return tot + arr ;
           },0));
-            console.log(`Colleceeted ${this.mss , hi}`);
+            console.log(`${ this.mss }Colleceeted ${ hi}`);
         });
 
        
