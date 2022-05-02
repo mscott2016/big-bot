@@ -62,10 +62,10 @@ module.exports = class QotdListener extends Listener {
         this.collector.on('end', collected => {
             this.mss.sort((a, b) => 
          a.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
-      
+            console.log(`Collei${tot + arr}`);
             return tot + arr ;
-          },0)  > b.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
-      
+          },0)  >  b.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
+            console.log(`Colle878bhbhb77y7 i${tot + arr}`);
             return tot + arr ;
           },0));
             console.log(`Colleceeted ${this.mss}`);
