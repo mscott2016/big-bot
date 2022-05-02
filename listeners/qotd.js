@@ -132,6 +132,7 @@ module.exports = class QotdListener extends Listener {
     }
 
     timeChecker() {
+        console.log( "u777777 uuuuuu vb");
         var oldTime = this.G_oldTime || new Date(),
             newTime = new Date(),
             timeDiff = newTime - oldTime;
