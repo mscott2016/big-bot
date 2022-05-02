@@ -27,7 +27,7 @@ module.exports = class QotdListener extends Listener {
         if (message.author.bot) {
             if (message.content === 'Staring QOTD') {
                 console.log(message.content);
-                this.started = true;
+                this.started = false;
                 this.mss =[];
                 const filter = m => m.channel.id.includes('951655353035157504');
                 this.collector = new Discord.MessageCollector(message.channel,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
@@ -35,7 +35,9 @@ module.exports = class QotdListener extends Listener {
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
                 this.qotd();
                 console.log('timeoutpr390395 09080ne');
-                setInterval(this.timeChecker, 55000);
+                if (this.started){
+                    setInterval(this.timeChecker, 55000);
+                }
             } else if (message.content === 'Stopping QOTD') {
                 console.log(message.content);
                 this.started = false;
@@ -119,7 +121,7 @@ module.exports = class QotdListener extends Listener {
         this.channelll.send(`QOTD: ${this.qss}`);
         this.callCollector();
         this.endCollecter();
-       
+        this.started = true;
         // PromiseTimers.setTimeout(delay).then(function (args) {
         //     // this refers to timeout
         //     console.log(args);
@@ -140,8 +142,9 @@ module.exports = class QotdListener extends Listener {
             console.log( `${Math.abs(timeDiff)} s ifjv ${timeDiff}`);
             // day second leniency
             if (this.started) {
-                console.log(" hhhj  uuuuuu vb");
+                console.log(" --- uuuuuu vb");
                 this.qotd();
+                console.log(" hhhj  uuuuuu vb");
             }
             else {
                 return;
