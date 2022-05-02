@@ -57,7 +57,7 @@ module.exports = class QotdListener extends Listener {
         var oldTime = this.G_oldTime || new Date(),
             newTime = new Date(),
             timeDiff = newTime - oldTime;
-        console.log(this.G_oldTime);
+       
         this.G_oldTime = newTime;
 
         if (Math.abs(timeDiff) >= 800) {

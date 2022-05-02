@@ -57,7 +57,7 @@ class GoogleSheet {
    
     
     // Create client instance for auth
-   
+   console.log(this.questionNumber);
     let values = [
       [
         "done"
