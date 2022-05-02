@@ -16,6 +16,7 @@ module.exports = class QotdListener extends Listener {
         this.started = false;
         this.G_oldTime = new Date();
         this.collector;
+        this.mss =[];
     }
 
     async exec(message) {
@@ -46,18 +47,26 @@ module.exports = class QotdListener extends Listener {
 
     callCollector(){
         this.collector.on('collect', m => {
-            console.log(`Collected ${m.content}`);
+           this.mss.push( m)
+           
+            console.log(`Collected ${m.id}`);
         });
         
     }
     endCollecter(){
-        let myFunc = function(element, index, array) {
-            console.log(index + ' : ' + element + ' - ' + array[index])
-          }
+        
+          
+        
         this.collector.on('end', collected => {
-            console.log(`Collected ${collected.forEach(value, key, map =>{
-                console.log(key + ' : ' + value + ' - ' + map[key])
-            })}`);
+            this.mss.sort((a, b) => 
+         a.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
+      
+            return tot + arr ;
+          },0)  > b.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
+      
+            return tot + arr ;
+          },0));
+            console.log(`Collected ${this.mss[0], this.mss[1]}`);
         });
 
        
