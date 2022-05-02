@@ -94,8 +94,8 @@ class GoogleSheet {
      return this.questions[0][0];
     }
     for (var i = this.questions.length - 1; i >= 0; i--) {
-       if (question[i].includes('done') && i <  this.questions.length - 1){
-         console.log(question[i+1][0]);
+       if (this.questions[i].includes('done') && i <  this.questions.length - 1){
+         console.log(this.questions[i+1][0]);
          this.questionNumber = i+1;
          await this.checkOffQuestions();
          return this.questions[i+1][0];
