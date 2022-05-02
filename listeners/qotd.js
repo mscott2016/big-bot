@@ -25,10 +25,12 @@ module.exports = class QotdListener extends Listener {
             if (message.content === 'Staring QOTD') {
                 console.log(message.content);
                 this.started = true;
+                this.mss =[];
                 const filter = m => m.channel.id.includes('951655353035157504');
                 this.collector = new Discord.MessageCollector(message.channel,filter, {  time: 45000, max: 2000 , maxProcessed: 2000});
                 console.log('timeoutpr390395 09080ne');
                 this.timeChecker();
+                
                 setInterval(this.timeChecker, 800);
             } else if (message.content === 'Stopping QOTD') {
                 console.log(message.content);
