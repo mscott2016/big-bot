@@ -26,7 +26,7 @@ module.exports = class QotdListener extends Listener {
                 console.log(message.content);
                 this.started = true;
                 const filter = m => m.channel.id.includes('951655353035157504');
-                this.collector = new Discord.MessageCollector(message.channel,filter, {  time: 25000, max: 2000 , maxProcessed: 2000});
+                this.collector = new Discord.MessageCollector(message.channel,filter, {  time: 45000, max: 2000 , maxProcessed: 2000});
                 console.log('timeoutpr390395 09080ne');
                 this.timeChecker();
                 setInterval(this.timeChecker, 800);
