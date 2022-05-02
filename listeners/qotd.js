@@ -34,8 +34,9 @@ module.exports = class QotdListener extends Listener {
                 this.channelll = message.client.channels.cache.get('951655353035157504');
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
                 this.qotd().then(function() {
+                    console.log('tij80395 0ne');
+                    setInterval(()=>{this.timeChecker()}, 55000);
                     console.log('timeoutpr390395 09080ne');
-                    setInterval(this.timeChecker, 55000);
                 });
                
             } else if (message.content === 'Stopping QOTD') {
