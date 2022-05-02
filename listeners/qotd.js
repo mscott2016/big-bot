@@ -51,11 +51,16 @@ module.exports = class QotdListener extends Listener {
         
     }
     endCollecter(){
+        let myFunc = function(element, index, array) {
+            console.log(index + ' : ' + element + ' - ' + array[index])
+          }
         this.collector.on('end', collected => {
-            console.log(`Collected ${collected.values()}`);
+            console.log(`Collected ${collected.forEach(myFunc)}`);
         });
 
-        
+       
+           
+      
     }
 
     async qotd() {
