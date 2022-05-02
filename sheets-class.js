@@ -86,19 +86,19 @@ class GoogleSheet {
   }
 
   async  getLastQuestion(){
-    q_s = await this.readQuestions();
-    if (!q_s[0].includes('done')){
-     console.log(q_s[0][0]);
+   let question = await this.readQuestions();
+    if (!question[0].includes('done')){
+     console.log(question[0][0]);
      this.questionNumber = 0;
      await this.checkOffQuestions();
-     return q_s[0][0];
+     return question[0][0];
     }
-    for (var i = q_s.length - 1; i >= 0; i--) {
-       if (q_s[i].includes('done') && i <  q_s.length - 1){
-         console.log(q_s[i+1][0]);
+    for (var i = question.length - 1; i >= 0; i--) {
+       if (question[i].includes('done') && i <  question.length - 1){
+         console.log(question[i+1][0]);
          this.questionNumber = i+1;
          await this.checkOffQuestions();
-         return q_s[i+1][0];
+         return question[i+1][0];
        }
    }
    }
