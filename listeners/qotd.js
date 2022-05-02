@@ -52,7 +52,7 @@ module.exports = class QotdListener extends Listener {
     }
     endCollecter(){
         this.collector.on('end', collected => {
-            console.log(`Collected ${collected[0]}`);
+            console.log(`Collected ${collected.last()}`);
         });
 
         
