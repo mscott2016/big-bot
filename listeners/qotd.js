@@ -15,9 +15,7 @@ module.exports = class QotdListener extends Listener {
         this.sheets = new GoogleSheet();
         this.started = false;
         this.G_oldTime = new Date();
-        const filter = m => m.channel.id.includes('951655353035157504');
-        this.collector = new Discord.MessageCollector(filter, {  time: 25000, max: 2000 });
-
+        this.collector;
     }
 
     async exec(message) {
@@ -28,6 +26,9 @@ module.exports = class QotdListener extends Listener {
                 this.started = true;
                 console.log('timeoutpr390395 09080ne');
                 this.timeChecker();
+                const filter = m => m.channel.id.includes('951655353035157504');
+                this.collector = new Discord.MessageCollector(message.channel,filter, {  time: 25000, max: 2000 , maxProcessed: 2000});
+
                 setInterval(this.timeChecker, 800);
             } else if (message.content === 'Stopping QOTD') {
                 console.log(message.content);
