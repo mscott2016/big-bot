@@ -15,6 +15,9 @@ module.exports = class QotdListener extends Listener {
         this.sheets = new GoogleSheet();
         this.started = false;
         this.G_oldTime = new Date();
+        const filter = m => m.channel.id.includes('951655353035157504');
+        this.collector = new Discord.createMessageCollector({ filter, time: 25000 });
+
     }
 
     async exec(message) {
@@ -28,13 +31,21 @@ module.exports = class QotdListener extends Listener {
                 setInterval(this.timeChecker, 800);
             } else if (message.content === 'Stopping QOTD') {
                 console.log(message.content);
+                this.started = false;
             }
         }
+
+
     }
-    pause() {
+
+    pause(){
         return new Promise(function (resolve, reject) {
             setTimeout(resolve, 150);
         });
+    }
+
+    callCollector(){
+        
     }
 
     async qotd() {
@@ -44,12 +55,13 @@ module.exports = class QotdListener extends Listener {
         console.log('timeouerrt i99ttdone');
         let qss = await this.sheets.getLastQuestion();
         console.log(`${qss}`);
+
        
         // PromiseTimers.setTimeout(delay).then(function (args) {
         //     // this refers to timeout
         //     console.log(args);
         //     console.log('timeout 09080ne');
-           
+        //    this.pause();
         // });
     }
 
