@@ -101,7 +101,13 @@ module.exports = class QotdListener extends Listener {
              4: ${msgList[3].author.id}\n
              5: ${msgList[4].author.id}\n`);
         }
+        else {
+            this.post_chan.send(`QOTD: ${this.qss}: \n
+            1: ${msgList[0].author.id} \n
+            2: ${msgList[1].author.id}\n
+            3: ${msgList[2].author.id}\n`);
 
+        }
         }
 
     async qotd() {
