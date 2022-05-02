@@ -57,7 +57,7 @@ class GoogleSheet {
    
     
     // Create client instance for auth
-   console.log(this.questionNumber);
+   console.log(`the num ${this.questionNumber}`);
     let values = [
       [
         "done"
@@ -89,7 +89,8 @@ class GoogleSheet {
    
     if (!this.questions[0].includes('done')){
      console.log(this.questions[0][0]);
-     this.questionNumber = 0;
+     this.questionNumber = 1;
+     console.log("hhuhu jjnj")
      await this.checkOffQuestions();
      return this.questions[0][0];
     }
