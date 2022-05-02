@@ -80,13 +80,14 @@ module.exports = class QotdListener extends Listener {
           },0));
             console.log(`${ this.mss } Colleceeted `);
            this.winner(hi.reverse());
-        // send who one in q chat with q
+           this.collector.handleDispose(collected);
+           // send who one in q chat with q
        
         });
         //clear  mss
        this.mss = [];
-           
-      
+       h = new Discord.MessageCollector(message.channel,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
+        this.collector=h;
     }
 
     winner(msgList){
