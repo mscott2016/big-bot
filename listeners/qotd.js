@@ -17,6 +17,9 @@ module.exports = class QotdListener extends Listener {
         this.G_oldTime = new Date();
         this.collector;
         this.mss =[];
+        this.channelll;
+        this.post_chan;
+        this.qss;
     }
 
     async exec(message) {
@@ -28,10 +31,12 @@ module.exports = class QotdListener extends Listener {
                 this.mss =[];
                 const filter = m => m.channel.id.includes('951655353035157504');
                 this.collector = new Discord.MessageCollector(message.channel,filter, {  time: 45000, max: 2000 , maxProcessed: 2000});
-                console.log('timeoutpr390395 09080ne');
-                this.timeChecker();
+                this.channelll = message.client.channels.cache.get('951655353035157504');
+                this.post_chan = message.client.channels.cache.get('951654574920458350');
                 
-                setInterval(this.timeChecker, 800);
+                this.qotd()
+                console.log('timeoutpr390395 09080ne');
+                setInterval(this.timeChecker, 80000);
             } else if (message.content === 'Stopping QOTD') {
                 console.log(message.content);
                 this.started = false;
@@ -60,6 +65,8 @@ module.exports = class QotdListener extends Listener {
           
         
         this.collector.on('end', collected => {
+            // send end message 
+            this.channelll.send(`Ending question of the day most reactions wins !!`);
             let hi =this.mss.sort((a, b) => 
          a.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
             console.log(`Collei${tot + arr}`);
@@ -69,21 +76,44 @@ module.exports = class QotdListener extends Listener {
             console.log(`Colle878bhbbhb77y7 i${tot + arr}`);
             return tot + arr ;
           },0));
-            console.log(`${ this.mss } Colleceeted ${ hi.reverse()}`);
-        });
-
+            console.log(`${ this.mss } Colleceeted `);
+           this.winner(hi.reverse());
+        // send who one in q chat with q
        
+        });
+        //clear  mss
+       this.mss = [];
            
       
     }
 
-    async qotd() {
+    winner(msgList){
         
+        if (msgList.length > 0 && msgList.length <5){
+            this.post_chan.send(`QOTD: ${this.qss}: \n
+             1: ${msgList[0].author.id}`);
+        }
+        else if ( msgList.length >13){
+            this.post_chan.send(`QOTD: ${this.qss}: \n
+             1: ${msgList[0].author.id} \n
+             2: ${msgList[1].author.id}\n
+             3: ${msgList[2].author.id}\n
+             4: ${msgList[3].author.id}\n
+             5: ${msgList[4].author.id}\n`);
+        }
+
+        }
+
+    async qotd() {
+        if (!this.started ){
+            return;
+        }
         const delay = 1000;
         await this.sheets.readQuestions();
         console.log('timeouerrt i99ttdone');
-        let qss = await this.sheets.getLastQuestion();
-        console.log(`${qss}`);
+        this.qss = await this.sheets.getLastQuestion();
+        console.log(`${ this.qss}`);
+        this.channelll.send(`QOTD: ${this.qss}`);
         this.callCollector();
         this.endCollecter();
        
@@ -102,10 +132,10 @@ module.exports = class QotdListener extends Listener {
        
         this.G_oldTime = newTime;
 
-        if (Math.abs(timeDiff) >= 800) {
+        if (Math.abs(timeDiff) >= 20000) {
             // day second leniency
             if (this.started) {
-                console.log(timeDiff);
+                console.log(timeDiff+ " hhhj  uuuuuu vb");
                 this.qotd();
             }
         }
