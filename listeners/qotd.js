@@ -40,9 +40,11 @@ module.exports = class QotdListener extends Listener {
     async qotd() {
         
         const delay = 1000;
+        await this.sheets.readQuestions();
+        console.log('timeouerrt i99ttdone');
         let qss = await this.sheets.getLastQuestion();
         console.log(`${qss}`);
-        console.log('timeouerrt i99ttdone');
+       
         // PromiseTimers.setTimeout(delay).then(function (args) {
         //     // this refers to timeout
         //     console.log(args);
