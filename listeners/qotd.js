@@ -30,12 +30,12 @@ module.exports = class QotdListener extends Listener {
                 this.started = true;
                 this.mss =[];
                 const filter = m => m.channel.id.includes('951655353035157504');
-                this.collector = new Discord.MessageCollector(message.channel,filter, {  time: 45000, max: 2000 , maxProcessed: 2000});
+                this.collector = new Discord.MessageCollector(message.channel,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
                 this.channelll = message.client.channels.cache.get('951655353035157504');
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
                 this.qotd();
                 console.log('timeoutpr390395 09080ne');
-                setInterval(this.timeChecker, 50000);
+                setInterval(this.timeChecker, 55000);
             } else if (message.content === 'Stopping QOTD') {
                 console.log(message.content);
                 this.started = false;
@@ -110,9 +110,7 @@ module.exports = class QotdListener extends Listener {
         }
 
     async qotd() {
-        if (!this.started ){
-            return;
-        }
+      
         const delay = 1000;
         await this.sheets.readQuestions();
         console.log('timeouerrt i99ttdone');
@@ -138,11 +136,14 @@ module.exports = class QotdListener extends Listener {
        
         this.G_oldTime = newTime;
 
-        if (Math.abs(timeDiff) >= 2000) {
+        if (Math.abs(timeDiff) >= 800) {
             // day second leniency
             if (this.started) {
                 console.log(timeDiff+ " hhhj  uuuuuu vb");
                 this.qotd();
+            }
+            else {
+                return;
             }
         }
     }
