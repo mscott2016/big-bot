@@ -36,7 +36,7 @@ module.exports = class QotdListener extends Listener {
                 
                 this.qotd()
                 console.log('timeoutpr390395 09080ne');
-                setInterval(this.timeChecker, 80000);
+                setInterval(this.timeChecker, 50000);
             } else if (message.content === 'Stopping QOTD') {
                 console.log(message.content);
                 this.started = false;
@@ -91,21 +91,21 @@ module.exports = class QotdListener extends Listener {
         
         if (msgList.length > 0 && msgList.length <5){
             this.post_chan.send(`QOTD: ${this.qss}: \n
-             1: ${msgList[0].author.id}`);
+             1: ${msgList[0].author.tag}`);
         }
         else if ( msgList.length >13){
             this.post_chan.send(`QOTD: ${this.qss}: \n
-             1: ${msgList[0].author.id} \n
-             2: ${msgList[1].author.id}\n
-             3: ${msgList[2].author.id}\n
-             4: ${msgList[3].author.id}\n
-             5: ${msgList[4].author.id}\n`);
+             1: ${msgList[0].author.tag} \n
+             2: ${msgList[1].author.tag}\n
+             3: ${msgList[2].author.tag}\n
+             4: ${msgList[3].author.tag}\n
+             5: ${msgList[4].author.tag}\n`);
         }
         else {
             this.post_chan.send(`QOTD: ${this.qss}: \n
-            1: ${msgList[0].author.id} \n
-            2: ${msgList[1].author.id}\n
-            3: ${msgList[2].author.id}\n`);
+            1: ${msgList[0].author.tag} \n
+            2: ${msgList[1].author.tag}\n
+            3: ${msgList[2].author.tag}\n`);
 
         }
         }
