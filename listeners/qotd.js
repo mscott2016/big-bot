@@ -12,7 +12,7 @@ module.exports = class QotdListener extends Listener {
             emitter: 'client',
             event: 'message'
         });
-        this.sheets = GoogleSheet();
+        this.sheets = new GoogleSheet();
         this.started = false;
         this.G_oldTime = new Date();
     }
