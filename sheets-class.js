@@ -13,16 +13,33 @@ class GoogleSheet {
       keyFile: "sheets.json",
       scopes: "https://www.googleapis.com/auth/spreadsheets",
     });
-    this.client = await this.auth.getClient();
-  
+    console.log(" rjf ") 
+    
+    const getData = async () => {
+      try {
+        this.client  = await this.auth.getClient();
+        console.log("jjjj")
+      } catch (err) {
+         console.log(err)
+      }
+      
+  };
+  getData();
+  console.log(" 2rjf ") ;
+  setInterval(auth, 800);
   // Instance of Google Sheets API
   this.googleSheets = google.sheets({ version: "v4", auth: client });
-  
+  console.log(" 345rjf ") ;
   this.spreadsheetId =  "1QQrEh0ks2FIP-K96acEppBY--P9HYanAoBpZqJyUo9k";
-    this.questions = [];
+  console.log(" 3rjf ")   ;
+  this.questions = [];
     this.questionNumber = 1;
   }
   
+  async auth(){
+    console.log(" 2rjf ") ;
+  }
+
   async  readQuestions(){
     
     const find = await this.googleSheets.spreadsheets.values.get({
