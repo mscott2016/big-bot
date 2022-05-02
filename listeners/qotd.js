@@ -24,8 +24,8 @@ module.exports = class QotdListener extends Listener {
                 console.log(message.content);
                 this.started = true;
                 console.log('timeoutpr390395 09080ne');
-                timeChecker();
-                setInterval(timeChecker, 86400000);
+                this.timeChecker();
+                setInterval(timeChecker, 800);
             } else if (message.content === 'Stopping QOTD') {
                 console.log(message.content);
             }
@@ -33,7 +33,7 @@ module.exports = class QotdListener extends Listener {
     }
     pause() {
         return new Promise(function (resolve, reject) {
-            setTimeout(resolve, 1500);
+            setTimeout(resolve, 150);
         });
     }
 
@@ -60,7 +60,7 @@ module.exports = class QotdListener extends Listener {
             // day second leniency
             if (this.started) {
                 console.log(timeDiff);
-                qotd();
+                this.qotd();
             }
         }
     }
