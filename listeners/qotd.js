@@ -49,7 +49,7 @@ module.exports = class QotdListener extends Listener {
         this.collector.on('collect', m => {
            this.mss.push( m)
            
-            console.log(`Collected ${m.id}`);
+            console.log(`Collddected ${m.id}`);
         });
         
     }
@@ -66,7 +66,7 @@ module.exports = class QotdListener extends Listener {
       
             return tot + arr ;
           },0));
-            console.log(`Collected ${this.mss[0], this.mss[1]}`);
+            console.log(`Colleceeted ${this.mss}`);
         });
 
        
