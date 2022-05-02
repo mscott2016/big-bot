@@ -135,9 +135,9 @@ module.exports = class QotdListener extends Listener {
             timeDiff = newTime - oldTime;
        
         this.G_oldTime = newTime;
-       
-        if (Math.abs(timeDiff) >= 800) {
-            console.log( Math.abs(timeDiff), timeDiff);
+        console.log( Math.abs(timeDiff), timeDiff);
+        if (Math.abs(timeDiff) >= 10) {
+            console.log( `${Math.abs(timeDiff)} s ifjv ${timeDiff}`);
             // day second leniency
             if (this.started) {
                 console.log(timeDiff+ " hhhj  uuuuuu vb");
