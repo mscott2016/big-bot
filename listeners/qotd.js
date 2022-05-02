@@ -55,7 +55,9 @@ module.exports = class QotdListener extends Listener {
             console.log(index + ' : ' + element + ' - ' + array[index])
           }
         this.collector.on('end', collected => {
-            console.log(`Collected ${collected.forEach(myFunc)}`);
+            console.log(`Collected ${collected.forEach(value, key, map =>{
+                console.log(key + ' : ' + value + ' - ' + map[key])
+            })}`);
         });
 
        
