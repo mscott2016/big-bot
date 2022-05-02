@@ -147,9 +147,9 @@ client.on("ready", () => {
   var stream = T.stream('statuses/filter', { follow: [process.env['TWITID']] });
 
   //    var stream = T.stream('statuses/sample')
-  console.log(stream)
+  //console.log(stream)
   stream.on('tweet', function (tweet) {
-    console.log(tweet)
+    //console.log(tweet)
     //    only show owner tweets
     if (tweet.user.id == process.env['TWITID']) {
       //console.log("ndeeedn")
@@ -218,7 +218,7 @@ function timeChecker() {
 
   if (Math.abs(timeDiff) >= 800) { // day second leniency
     qotd();
-    console.log(timeDiff)
+    //console.log(timeDiff)
   }
 }
 
@@ -238,7 +238,7 @@ function memberUpdate (){
   
     PromiseTimers.setTimeout(delay).then(function (args) {
     // this refers to timeout
-    console.log(args);
+    //console.log(args);
 
     client.guilds.cache.forEach(async (guild) => {
       // Fetch all Guild Invites
@@ -247,7 +247,7 @@ function memberUpdate (){
       var onlineCount = guild.members.fetch(m => m.presence.status === 'online').size
       let chan = client.channels.cache.get('940422111661547570');
       chan.setName(`All Menbers:${userCount}`)
-      console.log(onlineCount, userCount)
+      //console.log(onlineCount, userCount)
       await pause();
     }) 
     pause();
