@@ -16,7 +16,7 @@ module.exports = class QotdListener extends Listener {
         this.started = false;
         this.G_oldTime = new Date();
         const filter = m => m.channel.id.includes('951655353035157504');
-        this.collector =  Discord.createMessageCollector({ filter, time: 25000 });
+        this.collector = new Discord.MessageCollector({ filter, time: 25000 });
 
     }
 
