@@ -140,7 +140,7 @@ module.exports = class QotdListener extends Listener {
             console.log( `${Math.abs(timeDiff)} s ifjv ${timeDiff}`);
             // day second leniency
             if (this.started) {
-                console.log(timeDiff+ " hhhj  uuuuuu vb");
+                console.log(" hhhj  uuuuuu vb");
                 this.qotd();
             }
             else {
