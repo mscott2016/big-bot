@@ -25,7 +25,7 @@ module.exports = class QotdListener extends Listener {
                 this.started = true;
                 console.log('timeoutpr390395 09080ne');
                 this.timeChecker();
-                setInterval(timeChecker, 800);
+                setInterval(this.timeChecker, 800);
             } else if (message.content === 'Stopping QOTD') {
                 console.log(message.content);
             }
