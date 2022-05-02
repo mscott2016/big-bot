@@ -18,7 +18,9 @@ class GoogleSheet {
     const getData = async () => {
       try {
         this.client  = await this.auth.getClient();
+        this.googleSheets = google.sheets({ version: "v4", auth: this.client });
         console.log("jjjj")
+
       } catch (err) {
          console.log(err)
       }
@@ -28,7 +30,7 @@ class GoogleSheet {
   console.log(" 2rjf ") ;
   
   // Instance of Google Sheets API
-  this.googleSheets = google.sheets({ version: "v4", auth: this.client });
+ 
   console.log(" 345rjf ") ;
   this.spreadsheetId =  "1QQrEh0ks2FIP-K96acEppBY--P9HYanAoBpZqJyUo9k";
   console.log(" 3rjf ")   ;
