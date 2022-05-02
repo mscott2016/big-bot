@@ -33,11 +33,11 @@ module.exports = class QotdListener extends Listener {
                 this.collector = new Discord.MessageCollector(message.channel,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
                 this.channelll = message.client.channels.cache.get('951655353035157504');
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
-                this.qotd();
-                console.log('timeoutpr390395 09080ne');
-                if (this.started){
+                this.qotd().then(function() {
+                    console.log('timeoutpr390395 09080ne');
                     setInterval(this.timeChecker, 55000);
-                }
+                });
+               
             } else if (message.content === 'Stopping QOTD') {
                 console.log(message.content);
                 this.started = false;
