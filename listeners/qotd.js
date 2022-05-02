@@ -45,6 +45,9 @@ module.exports = class QotdListener extends Listener {
     }
 
     callCollector(){
+        this.collector.on('collect', m => {
+            console.log(`Collected ${m.content}`);
+        });
         
     }
 
@@ -55,7 +58,7 @@ module.exports = class QotdListener extends Listener {
         console.log('timeouerrt i99ttdone');
         let qss = await this.sheets.getLastQuestion();
         console.log(`${qss}`);
-
+        this.callCollector();
        
         // PromiseTimers.setTimeout(delay).then(function (args) {
         //     // this refers to timeout
