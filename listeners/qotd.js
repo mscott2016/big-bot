@@ -86,7 +86,8 @@ module.exports = class QotdListener extends Listener {
         });
         //clear  mss
        this.mss = [];
-       h = new Discord.MessageCollector(message.channel,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
+       const filter = m => m.channel.id.includes('951655353035157504');
+       h = new Discord.MessageCollector(this.channelll,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
         
        this.collector=h;
     }
