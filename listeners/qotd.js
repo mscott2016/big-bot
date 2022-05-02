@@ -23,6 +23,7 @@ module.exports = class QotdListener extends Listener {
             if (message.content === 'Staring QOTD') {
                 console.log(message.content);
                 this.started = true;
+                console.log('timeoutpr390395 09080ne');
                 timeChecker();
                 setInterval(timeChecker, 86400000);
             } else if (message.content === 'Stopping QOTD') {
@@ -39,11 +40,11 @@ module.exports = class QotdListener extends Listener {
     async qotd() {
         
         const delay = 1000;
-        console.log('timeouerrt ttdone');
+        console.log('timeouerrt i99ttdone');
         PromiseTimers.setTimeout(delay).then(function (args) {
             // this refers to timeout
             console.log(args);
-            console.log('timeout ttdone');
+            console.log('timeout 09080ne');
             pause();
         });
     }

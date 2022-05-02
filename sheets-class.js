@@ -26,7 +26,7 @@ class GoogleSheet {
   };
   getData();
   console.log(" 2rjf ") ;
-  setInterval(this.authr, 800);
+  
   // Instance of Google Sheets API
   this.googleSheets = google.sheets({ version: "v4", auth: this.client });
   console.log(" 345rjf ") ;
@@ -37,7 +37,7 @@ class GoogleSheet {
   }
   
   async authr(){
-    console.log(" 2rjf ") ;
+    console.log(" auth2rjf ") ;
   }
 
   async  readQuestions(){
