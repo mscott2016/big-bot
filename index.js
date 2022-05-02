@@ -178,13 +178,19 @@ client.on('guildMemberRemove',  member => {
 
 client.on('guildMemberAdd',  member => {
   // To compare, we need to load the current invite list.
+  if (member.user.bot){
+    memberUpdate();
+  return;
+}
   member.guild.fetchInvites().then(async (newInvites) => {
     // This is the *existing* invites for the guild.
+    
     //level.setURL(mySecretUrl);
     const oldInvites = invites.get(member.guild.id);
     // Look through the invites, find the one for which the uses went up.
     const invite = newInvites.find(i => i.uses > oldInvites.get(i.code));
     // This is just to simplify the message being sent below (inviter doesn't have a tag property)
+    
     const inviter = client.users.cache.get(invite.inviter.id);
     // Get the log channel (change to your liking)
     console.log(invite.code)
