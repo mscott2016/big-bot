@@ -35,7 +35,7 @@ module.exports = class QotdListener extends Listener {
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
                 await this.qotd().then(()=> {
                     console.log('tij80395 0ne');
-                  //  setInterval(()=>{this.timeChecker()}, 55000);
+                  //  setTimeout(function(index){return function() { this.qotd() }}(i), 55000);
                     console.log('timeoutpr390395 09080ne');
                 });
                
@@ -64,7 +64,7 @@ module.exports = class QotdListener extends Listener {
     }
     endCollecter(){
         
-          
+       let  collef =  this.collector;
         
         this.collector.on('end', collected => {
             // send end message 
@@ -87,10 +87,10 @@ module.exports = class QotdListener extends Listener {
         this.collector.resetTimer({ time: 40000});
        // this.mss.forEach()this.collector.dispose()
         //clear  mss
-       this.mss = [];
-       const filter = m => m.author.id !== message.author.bot;
+       
+       const filter = m => !m.author.bot ;
        const h = new Discord.MessageCollector(this.channelll,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
-        
+       this.mss = []; 
        this.collector= new Discord.MessageCollector(this.channelll,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
     }
 
@@ -128,6 +128,42 @@ module.exports = class QotdListener extends Listener {
         this.callCollector();
         this.endCollecter();
         this.started = true;
+
+        // this.collector.on('collect', m => {
+        //     this.mss.push( m)
+            
+        //      console.log(`Collddected ${m.id}`);
+        //  });
+         
+        // let  collef =  this.collector;
+         
+        //  this.collector.on('end', collected => {
+        //      // send end message 
+        //      this.channelll.send(`Ending question of the day most reactions wins !!`);
+        //      let hi =this.mss.sort((a, b) => 
+        //   a.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
+        //      console.log(`Collei${tot + arr}`);
+        //      return tot + arr ;
+        //    },0) -
+        //     b.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
+        //      console.log(`Colle878bhbbhb77y7 i${tot + arr}`);
+        //      return tot + arr ;
+        //    },0));
+        //      console.log(`${ this.mss } Colleceeted `);
+        //     this.winner(hi.reverse());
+        //     this.collector.handleDispose(collected);
+        //     // send who one in q chat with q
+        
+        //  });
+        //  this.collector.resetTimer({ time: 40000});
+        // // this.mss.forEach()this.collector.dispose()
+        //  //clear  mss
+        
+        // const filter = m => !m.author.bot ;
+        // const h = new Discord.MessageCollector(this.channelll,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
+        // this.mss = []; 
+        // this.collector= new Discord.MessageCollector(this.channelll,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
+
         // PromiseTimers.setTimeout(delay).then(function (args) {
         //     // this refers to timeout
         //     console.log(args);

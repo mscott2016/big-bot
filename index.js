@@ -252,7 +252,7 @@ function memberUpdate (){
       var userCount = guild.memberCount;
       var onlineCount = guild.members.fetch(m => m.presence.status === 'online').size
       let chan = client.channels.cache.get('940422111661547570');
-      chan.setName(`All Menbers:${userCount}`)
+      chan.setName(`All Members:${userCount}`)
       //console.log(onlineCount, userCount)
       await pause();
     }) 
