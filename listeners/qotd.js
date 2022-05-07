@@ -36,7 +36,7 @@ module.exports = class QotdListener extends Listener {
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
                 await this.qotd(this.collector).then(()=> {
                     console.log('tij80395 0ne');
-                    setTimeout(function(index){return function() { this.qotd(this.collector) }}(i), 55000);
+                    setTimeout(function(){return function() { this.qotd(this.collector) }}, 55000);
                     console.log('timeoutpr390395 09080ne');
                 });
                
