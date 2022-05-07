@@ -31,12 +31,12 @@ module.exports = class QotdListener extends Listener {
                 this.mss =[];
                 const filter = m => m.author.id !== message.author.bot;
                 
-                collector = new Discord.MessageCollector(message.channel,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
+               let  scollector = new Discord.MessageCollector(message.channel,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
                 this.channelll = message.client.channels.cache.get('951655353035157504');
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
-                await this.qotd(collector).then(()=> {
+                await this.qotd(scollector).then(()=> {
                     console.log('tij80395 0ne');
-                    setTimeout(function(index){return function() { this.qotd(collector) }}(i), 55000);
+                    setTimeout(function(index){return function() { this.qotd(scollector) }}(i), 55000);
                     console.log('timeoutpr390395 09080ne');
                 });
                
