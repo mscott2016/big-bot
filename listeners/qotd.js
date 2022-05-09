@@ -100,15 +100,15 @@ module.exports = class QotdListener extends Listener {
         
         if (msgList.length > 0 && msgList.length <= 5){
             this.post_chan.send(`QOTD: ${this.qss}: \n
-             1: @${msgList[0].author.tag}`);
+             1: @${msgList[0].author.toString()}`);
         }
         else if ( msgList.length >13){
             this.post_chan.send(`QOTD: ${this.qss}: \n
-             1: @${msgList[0].author.tag} \n
-             2: @${msgList[1].author.tag}\n
-             3: @${msgList[2].author.tag}\n
-             4: @${msgList[3].author.tag}\n
-             5: @${msgList[4].author.tag}\n`);
+             1: @${msgList[0].author.toString()} \n
+             2: @${msgList[1].author.toString()}\n
+             3: @${msgList[2].author.toString()}\n
+             4: @${msgList[3].author.toString()}\n
+             5: @${msgList[4].author.toString()}\n`);
         }
         else {
             this.post_chan.send(`QOTD: ${this.qss}: \n
