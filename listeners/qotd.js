@@ -26,7 +26,7 @@ module.exports = class QotdListener extends Listener {
     async exec(message) {
         if (!('951655353035157504' === message.channel.id)) return;
         if (message.author.bot) {
-            if (message.content === 'Staring QOTD') {
+            if (message.content === 'Starting QOTD') {
                 console.log(message.content);
 
                 this.started = false;
