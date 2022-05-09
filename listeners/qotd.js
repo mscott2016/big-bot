@@ -157,7 +157,7 @@ module.exports = class QotdListener extends Listener {
             // send who one in q chat with q
         
          });
-         collector.resetTimer({ time: 40000});
+         collector.resetTimer({ time: 4670000});
         // this.mss.forEach()this.collector.dispose()
         //clear  mss
         
