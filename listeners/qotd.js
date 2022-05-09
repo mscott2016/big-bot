@@ -156,7 +156,7 @@ module.exports = class QotdListener extends Listener {
          });
          collector.resetTimer({ time: 40000});
         // this.mss.forEach()this.collector.dispose()
-         //clear  mss
+        //clear  mss
         
      
         this.mss = []; 
