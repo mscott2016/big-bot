@@ -97,21 +97,21 @@ module.exports = class QotdListener extends Listener {
         
         if (msgList.length > 0 && msgList.length <= 5){
             this.post_chan.send(`QOTD: ${this.qss}: \n
-             1: ${msgList[0].author.tag}`);
+             1: @${msgList[0].author.tag}`);
         }
         else if ( msgList.length >13){
             this.post_chan.send(`QOTD: ${this.qss}: \n
-             1: ${msgList[0].author.tag} \n
-             2: ${msgList[1].author.tag}\n
-             3: ${msgList[2].author.tag}\n
-             4: ${msgList[3].author.tag}\n
-             5: ${msgList[4].author.tag}\n`);
+             1: @${msgList[0].author.tag} \n
+             2: @${msgList[1].author.tag}\n
+             3: @${msgList[2].author.tag}\n
+             4: @${msgList[3].author.tag}\n
+             5: @${msgList[4].author.tag}\n`);
         }
         else {
             this.post_chan.send(`QOTD: ${this.qss}: \n
-            1: ${msgList[0].author.tag} \n
-            2: ${msgList[1].author.tag}\n
-            3: ${msgList[2].author.tag}\n`);
+            1: @${msgList[0].author.tag} \n
+            2: @${msgList[1].author.tag}\n
+            3: @${msgList[2].author.tag}\n`);
 
         }
         }
@@ -123,7 +123,7 @@ module.exports = class QotdListener extends Listener {
         console.log('timeouerrt i99ttdone');
         this.qss = await this.sheets.getLastQuestion();
         console.log(`${ this.qss}`);
-        this.channelll.send(`QOTD: ${this.qss}`);
+        this.channelll.send(`\n QOTD: ${this.qss}  @everyone`);
        // this.callCollector();
         //this.endCollecter();
         this.started = true;
@@ -138,7 +138,7 @@ module.exports = class QotdListener extends Listener {
          
          collector.on('end', collected => {
              // send end message 
-             this.channelll.send(`Ending question of the day most reactions wins !!`);
+             this.channelll.send(`Ending question of the day!! THE most reactions wins !!`);
              let hi =this.mss.sort((a, b) => 
           a.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
              console.log(`Collei${tot + arr}`);
