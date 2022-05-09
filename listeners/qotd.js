@@ -30,8 +30,8 @@ module.exports = class QotdListener extends Listener {
                 this.started = false;
                 this.mss =[];
                 const filter = m => m.author.id !== message.author.bot;
-                
-            this.collector = new Discord.MessageCollector(message.channel,filter, {  time: 40000, max: 2000 , maxProcessed: 2000});
+                var userCount = message.client.guild.memberCount;
+            this.collector = new Discord.MessageCollector(message.channel,filter, {  time:  86400000, max: userCount + 6 , maxProcessed: userCount + 6});
                 this.channelll = message.client.channels.cache.get('951655353035157504');
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
                 await this.qotd(this.collector).then(()=> {
