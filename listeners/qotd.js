@@ -28,11 +28,13 @@ module.exports = class QotdListener extends Listener {
         if (message.author.bot) {
             if (message.content === 'Staring QOTD') {
                 console.log(message.content);
+
                 this.started = false;
+
                 this.mss =[];
                 const filter = m => m.author.id !== message.author.bot;
                 var userCount = message.guild.memberCount;
-            this.collector = new Discord.MessageCollector(message.channel,filter, {  time:  40000, max: userCount + 6 , maxProcessed: userCount + 6});
+                this.collector = new Discord.MessageCollector(message.channel,filter, {  time:  41000, max: userCount + 6 , maxProcessed: userCount + 6});
                 this.channelll = message.client.channels.cache.get('951655353035157504');
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
                 await this.qotd(this.collector).then(()=> {
