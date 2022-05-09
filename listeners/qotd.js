@@ -34,12 +34,12 @@ module.exports = class QotdListener extends Listener {
                 this.mss =[];
                 const filter = m => m.author.id !== message.author.bot;
                 var userCount = message.guild.memberCount;
-                this.collector = new Discord.MessageCollector(message.channel,filter, {  time:  41000, max: userCount + 6 , maxProcessed: userCount + 6});
+                this.collector = new Discord.MessageCollector(message.channel,filter, {  time:  86400000, max: userCount + 6 , maxProcessed: userCount + 6});
                 this.channelll = message.client.channels.cache.get('951655353035157504');
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
                 await this.qotd(this.collector).then(()=> {
                     console.log('tij80395 0ne');
-                    setTimeout(function(){return function() { this.qotd(this.collector) }}, 55000);
+                    setTimeout(function(){return function() { this.qotd(this.collector) }}, 86400000);
                     console.log('timeoutpr390395 09080ne');
                 });
                
@@ -100,21 +100,21 @@ module.exports = class QotdListener extends Listener {
         
         if (msgList.length > 0 && msgList.length <= 5){
             this.post_chan.send(`QOTD: ${this.qss}: \n
-             1: @${msgList[0].author.toString()}`);
+             1: ${msgList[0].author.toString()}`);
         }
         else if ( msgList.length >13){
             this.post_chan.send(`QOTD: ${this.qss}: \n
-             1: @${msgList[0].author.toString()} \n
-             2: @${msgList[1].author.toString()}\n
-             3: @${msgList[2].author.toString()}\n
-             4: @${msgList[3].author.toString()}\n
-             5: @${msgList[4].author.toString()}\n`);
+             1: ${msgList[0].author.toString()} \n
+             2: ${msgList[1].author.toString()}\n
+             3: ${msgList[2].author.toString()}\n
+             4: ${msgList[3].author.toString()}\n
+             5: ${msgList[4].author.toString()}\n`);
         }
         else {
             this.post_chan.send(`QOTD: ${this.qss}: \n
-            1: @${msgList[0].author.tag} \n
-            2: @${msgList[1].author.tag}\n
-            3: @${msgList[2].author.tag}\n`);
+            1: ${msgList[0].author.tag} \n
+            2: ${msgList[1].author.tag}\n
+            3: ${msgList[2].author.tag}\n`);
 
         }
         }
