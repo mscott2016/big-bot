@@ -34,14 +34,15 @@ module.exports = class QotdListener extends Listener {
                 this.mss =[];
                 const filter = m => m.author.id !== message.author.bot;
                 var userCount = message.guild.memberCount;
-                this.collector = new Discord.MessageCollector(message.channel,filter, {  time:  86400000, max: userCount + 6 , maxProcessed: userCount + 6});
+                this.collector = new Discord.MessageCollector(message.channel,filter, {  time:  89900000, max: userCount + 6 , maxProcessed: userCount + 6});
                 this.channelll = message.client.channels.cache.get('951655353035157504');
                 this.post_chan = message.client.channels.cache.get('951654574920458350');
-                await this.qotd(this.collector).then(()=> {
-                    console.log('tij80395 0ne');
-                    setTimeout(function(){return function() { this.qotd(this.collector) }}, 86400000);
-                    console.log('timeoutpr390395 09080ne');
-                });
+                await this.qotd(this.collector);
+                // .then(()=> {
+                //     console.log('tij80395 0ne');
+                //     setTimeout(function(){return function() { this.qotd(this.collector) }}, 86400000);
+                //     console.log('timeoutpr390395 09080ne');
+                // });
                
             } else if (message.content === 'Stopping QOTD') {
                 console.log(message.content);
@@ -157,7 +158,7 @@ module.exports = class QotdListener extends Listener {
             // send who one in q chat with q
         
          });
-         collector.resetTimer({ time: 4670000});
+         collector.resetTimer({ time: 467009000});
         // this.mss.forEach()this.collector.dispose()
         //clear  mss
         
