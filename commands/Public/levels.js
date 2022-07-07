@@ -22,10 +22,7 @@ class LevelCommand extends Command {
     const user = await Discordvv.fetch(message.author.id, message.guild.id);
      var usr = message.mentions.users.first() || message.author;
    // let invites = await guild.fetchInvites()
-  
-    
-    
-   
+
      const requiredXp = await Discordvv.xpFor(parseInt(user.level) + 1)
       const rankcard = new Canvacord.Rank()
         .setAvatar(usr.displayAvatarURL({format: 'png', dynamic: true}))
