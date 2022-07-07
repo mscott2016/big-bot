@@ -20,10 +20,7 @@ Discordvv.setURL(mySecretUrl)
 let invites = new Map()
 Levels.setURL(mySecretUrl)
 
-mongoose.connect(mySecretUrl, { useNewUrlParser: true, useUnifiedTopology: true })
-// .then(()=> app.listen(PORT2, () => console.log(`Mongo Server running on port: ${PORT2}`)))
-// .catch((error) => console.log(error.message));
-
+mongoose.connect(mySecretUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoCurrency.connect(mySecretUrl);
 
 
