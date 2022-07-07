@@ -23,4 +23,4 @@ class DiscordtrackCommand extends Command {
     async exec(message){
 
     }
-}module.exports = TwittertrackCommand ;
+}module.exports = DiscordtrackCommand ;
