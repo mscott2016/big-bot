@@ -37,6 +37,9 @@ class TwittertrackCommand extends Command {
           T.get('search/tweets', {q:"from:localcultureart  since:2022-06-20" , count: 100 }, function(err, data, response) {
             console.log(data.entities, data.user
                 ,typeof(data),   Object.keys(data).length)
+                for(var prop in data){
+                    console.log(prop);
+                }
 
           })
            
