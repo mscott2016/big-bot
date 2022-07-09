@@ -30,6 +30,11 @@ class TwittertrackCommand extends Command {
             timeout_ms: 60 * 1000,
             strictSSL: true,
           });
+
+          T.get('search/tweets', { q: 'localcultureart since:2022-06-11', count: 100 }, function(err, data, response) {
+            console.log(data)
+          })
+           
         //    const channel = message.client.channels.cache.get('935671934488830013');
           //935671934488830013
           //channel.send(atta)

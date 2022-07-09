@@ -15,7 +15,7 @@ class ChartsCommand extends Command {
             prefix: [ 'lca'],
             description: {
                 content: 'Gives the Chart representation of the required coin. Please use the full name of the coin',
-                usage: ', .sc <coin> <vs_currency> <days range> <theme(dark by default)>'
+                usage: ', lca <coin> <vs_currency> <days range> <theme(dark by default)>'
             },
             args: [
                 {
