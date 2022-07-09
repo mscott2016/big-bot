@@ -34,7 +34,7 @@ class TwittertrackCommand extends Command {
           });
 
           
-          T.get('search/tweets', {  screen_name:"localcultureart", count: 100 }, function(err, data, response) {
+          T.get('tweets/search/30day', {  screen_name:"localcultureart", count: 100 }, function(err, data, response) {
             console.log(data)
           })
            
