@@ -34,9 +34,9 @@ class TwittertrackCommand extends Command {
           });
 
           // screen_name:"localcultureart"
-          T.get('search/tweets', {q:"from:localcultureart  since:2022-07-09" , count: 100 }, function(err, data, response) {
+          T.get('search/tweets', {q:"from:localcultureart  since:2022-06-20" , count: 100 }, function(err, data, response) {
             console.log(data)
-            
+
           })
            
         //    const channel = message.client.channels.cache.get('935671934488830013');
