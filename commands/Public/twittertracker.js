@@ -2,7 +2,9 @@ const { Command } = require('discord-akairo');
 const fetch = require('node-fetch');
 const Discord = require('discord.js')
 const chalk = require('chalk');
+const Twit = require('twit');
 //const  Discordvv  = require('../../schemas/db-setup.js'); database 
+
 
 class TwittertrackCommand extends Command {
     constructor() {
