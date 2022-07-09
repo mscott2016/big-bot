@@ -34,8 +34,8 @@ class TwittertrackCommand extends Command {
           });
 
           
-          T.get('search/tweets/30day', {  screen_name:"localcultureart", count: 100 }, function(err, data, response) {
-            console.log(data)
+          T.get('favorites/list', {  screen_name:"localcultureart", count: 100 }, function(err, data, response) {
+            console.log(data, response)
           })
            
         //    const channel = message.client.channels.cache.get('935671934488830013');
