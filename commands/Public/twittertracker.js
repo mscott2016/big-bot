@@ -33,8 +33,8 @@ class TwittertrackCommand extends Command {
             strictSSL: true,
           });
 
-          
-          T.get('favorites/list', {  screen_name:"localcultureart", count: 100 }, function(err, data, response) {
+          // screen_name:"localcultureart"
+          T.get('search/tweets', {q:"from:localcultureart  since:2022-07-09" , count: 100 }, function(err, data, response) {
             console.log(data, response)
           })
            
