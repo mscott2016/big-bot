@@ -44,7 +44,7 @@ class TwittertrackCommand extends Command {
                     headeroauth = OAuth1(consumer_key, consumer_secret,access_token, access_token_secret, signature_type='auth_header')
                     r = requests.get(url, auth=headeroauth)
                     
-                    print(r.json())
+                    console.log(r.json())
                 }
 
           })
