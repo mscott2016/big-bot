@@ -33,12 +33,18 @@ class TwittertrackCommand extends Command {
             strictSSL: true,
           });
 
-          // screen_name:"localcultureart"
+          // screen_name:"localcultureart" fields=public_metrics
           T.get('search/tweets', {q:"from:localcultureart  since:2022-06-20" , count: 100 }, function(err, data, response) {
             console.log(data.entities, data.user
                 ,typeof(data),   Object.keys(data).length)
                 for(var prop in data['statuses']){
-                    console.log(data['statuses'][prop]);
+                    console.log(data['statuses'][prop].id);
+                    // url = `https://api.twitter.com/2/tweets/${data['statuses'][prop].id}?tweet.fields=public_metrics,non_public_metrics`;
+
+                    // headeroauth = OAuth1(consumer_key, consumer_secret,access_token, access_token_secret, signature_type='auth_header')
+                    // r = requests.get(url, auth=headeroauth)
+                    
+                    // print(r.json())
                 }
 
           })
