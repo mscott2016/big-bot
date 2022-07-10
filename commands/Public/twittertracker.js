@@ -39,10 +39,10 @@ class TwittertrackCommand extends Command {
                 ,typeof(data),   Object.keys(data).length)
                 for(var prop in data['statuses']){
                     console.log(data['statuses'][prop].id);
-                    url = `https://api.twitter.com/2/tweets/${data['statuses'][prop].id}?tweet.fields=public_metrics,non_public_metrics`;
+                    let url = `https://api.twitter.com/2/tweets/${data['statuses'][prop].id}?tweet.fields=public_metrics,non_public_metrics`;
 
-                    headeroauth = OAuth1(consumer_key, consumer_secret,access_token, access_token_secret, signature_type='auth_header')
-                    r = requests.get(url, auth=headeroauth)
+                    let headeroauth = OAuth1(consumer_key, consumer_secret,access_token, access_token_secret, signature_type='auth_header')
+                    let r = requests.get(url, auth=headeroauth)
                     
                     console.log(r.json())
                 }
