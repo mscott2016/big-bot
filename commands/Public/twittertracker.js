@@ -54,7 +54,7 @@ class TwittertrackCommand extends Command {
                     })
                 
                     if (res.body) {
-                        return res.body;
+                        console.log(res.body, res);
                     } else {
                         throw new Error('Unsuccessful request');
                     }
