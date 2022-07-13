@@ -36,7 +36,7 @@ class TwittertrackCommand extends Command {
           console.log("Message Starts here");
           console.log(message);
           console.log("Util message starts here");
-          console.log(message['util']);
+          console.log(message.util);
           // screen_name:"localcultureart" fields=public_metrics
           T.get('search/tweets', {q:"from:localcultureart  since:2022-06-20" , count: 100 }, function(err, data, response) {
             console.log(data.entities, data.user
