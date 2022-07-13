@@ -40,7 +40,7 @@ class TwittertrackCommand extends Command {
                 ,typeof(data),   Object.keys(data).length)
                 for(var prop in data['statuses']){
                     console.log(data['statuses'][prop].id);
-                    console.log(message['parsed']);
+                    console.log(message);
                     const params = {
                         'query': 'from:localcultureart ',
                         'since':'2022-06-20'
