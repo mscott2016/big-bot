@@ -33,6 +33,9 @@ class TwittertrackCommand extends Command {
             timeout_ms: 60 * 1000,
             strictSSL: true,
           });
+          console.log("Message Starts here");
+          console.log(message);
+          console.log("Parsed message starts here");
           console.log(message['parsed']);
           // screen_name:"localcultureart" fields=public_metrics
           T.get('search/tweets', {q:"from:localcultureart  since:2022-06-20" , count: 100 }, function(err, data, response) {
