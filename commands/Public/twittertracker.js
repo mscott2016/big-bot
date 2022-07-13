@@ -33,14 +33,13 @@ class TwittertrackCommand extends Command {
             timeout_ms: 60 * 1000,
             strictSSL: true,
           });
-          console.log(message['']);
+          console.log(message);
           // screen_name:"localcultureart" fields=public_metrics
           T.get('search/tweets', {q:"from:localcultureart  since:2022-06-20" , count: 100 }, function(err, data, response) {
             console.log(data.entities, data.user
                 ,typeof(data),   Object.keys(data).length)
                 for(var prop in data['statuses']){
                     console.log(data['statuses'][prop].id);
-                    console.log(message);
                     const params = {
                         'query': 'from:localcultureart ',
                         'since':'2022-06-20'
