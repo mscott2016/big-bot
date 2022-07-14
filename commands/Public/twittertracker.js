@@ -35,38 +35,37 @@ class TwittertrackCommand extends Command {
           });
           console.log("Message Starts here");
           console.log(message);
-          console.log("Parsed message starts here");
-          console.log(message[0]);
+          let handleName = message.search("content:");
+          console.log(handleName);
           // screen_name:"localcultureart" fields=public_metrics
           T.get('search/tweets', {q:"from:localcultureart  since:2022-06-20" , count: 100 }, function(err, data, response) {
             console.log(data.entities, data.user
                 ,typeof(data),   Object.keys(data).length)
-                console.log(data)
-                // for(var prop in data['statuses']){
-                //     console.log(data['statuses'][prop].id);
-                //     const params = {
-                //         'query': 'from:localcultureart ',
-                //         'since':'2022-06-20'
-                //     };
+                for(var prop in data['statuses']){
+                    console.log(data['statuses'][prop].id);
+                    const params = {
+                        'query': 'from:localcultureart ',
+                        'since':'2022-06-20'
+                    };
 
-                //     // let url = `https://api.twitter.com/2/tweets/${data['statuses'][prop].id}?tweet.fields=public_metrics,non_public_metrics`;
-                //     // const res = await needle('get', url, params, {
-                //     //     headers: {
-                //     //         "User-Agent": "v2RecentSearchJS",
-                //     //         "authorization": `Bearer ${process.env['beart']}`
-                //     //     }
-                //     // })
+                    // let url = `https://api.twitter.com/2/tweets/${data['statuses'][prop].id}?tweet.fields=public_metrics,non_public_metrics`;
+                    // const res = await needle('get', url, params, {
+                    //     headers: {
+                    //         "User-Agent": "v2RecentSearchJS",
+                    //         "authorization": `Bearer ${process.env['beart']}`
+                    //     }
+                    // })
                 
-                //     // if (res.body) {
-                //     //     console.log(res.body, res);
-                //     // } else {
-                //     //     throw new Error('Unsuccessful request');
-                //     // }
-                //     // let headeroauth = OAuth1(consumer_key, consumer_secret,access_token, access_token_secret, signature_type='auth_header')
-                //     // let r = requests.get(url, auth=headeroauth)
+                    // if (res.body) {
+                    //     console.log(res.body, res);
+                    // } else {
+                    //     throw new Error('Unsuccessful request');
+                    // }
+                    // let headeroauth = OAuth1(consumer_key, consumer_secret,access_token, access_token_secret, signature_type='auth_header')
+                    // let r = requests.get(url, auth=headeroauth)
                     
-                //     // console.log(r.json())
-                // }
+                    // console.log(r.json())
+                }
 
           })
            
