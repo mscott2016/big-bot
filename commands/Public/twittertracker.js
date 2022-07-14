@@ -33,6 +33,7 @@ class TwittertrackCommand extends Command {
             timeout_ms: 60 * 1000,
             strictSSL: true,
           });
+          message.toString();
           console.log("Message Starts here");
           console.log(message);
           let handleName = message.search("content:");
