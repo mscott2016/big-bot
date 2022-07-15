@@ -52,7 +52,7 @@ class TwittertrackCommand extends Command {
                     
                     const params = {
                         'query': `from: ${handle}`,
-                        'since':'2022-06-20'
+                        'since': `${date}`
                     };
 
                     // let url = `https://api.twitter.com/2/tweets/${data['statuses'][prop].id}?tweet.fields=public_metrics,non_public_metrics`;
