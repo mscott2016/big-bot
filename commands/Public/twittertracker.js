@@ -47,10 +47,10 @@ class TwittertrackCommand extends Command {
                 ,typeof(data),   Object.keys(data).length)
                 for(var prop in data['statuses']){
                     console.log(data['statuses'][prop].id);
-                    // const params = {
-                    //     'query': `from: ${handle}`,
-                    //     'since':'2022-06-20'
-                    // };
+                    const params = {
+                        'query': `from: ${handle}`,
+                        'since':'2022-06-20'
+                    };
 
                     // let url = `https://api.twitter.com/2/tweets/${data['statuses'][prop].id}?tweet.fields=public_metrics,non_public_metrics`;
                     // const res = await needle('get', url, params, {
