@@ -18,7 +18,7 @@ class TwittertrackCommand extends Command {
             },
             args: [
                 {
-                    handle: 'twitter'
+                    id: 'twitter'
                 }
             ]
         });
@@ -34,10 +34,11 @@ class TwittertrackCommand extends Command {
             timeout_ms: 60 * 1000,
             strictSSL: true,
           });
-          String(message);
-          console.log("Message Starts here");
-          console.log(JSON.parse(message.innerText));
-          console.log(typeof(message));
+          console.log(args.id);
+        //   String(message);
+        //   console.log("Message Starts here");
+        //   console.log(JSON.parse(message.innerText));
+        //   console.log(typeof(message));
           // screen_name:"localcultureart" fields=public_metrics
           T.get('search/tweets', {q:"from:localcultureart  since:2022-06-20" , count: 100 }, function(err, data, response) {
             console.log(data.entities, data.user
