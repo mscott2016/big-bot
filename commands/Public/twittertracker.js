@@ -34,7 +34,7 @@ class TwittertrackCommand extends Command {
             timeout_ms: 60 * 1000,
             strictSSL: true,
           });
-          console.log(args['twitter']);
+          console.log(args['twitter'].slice(1, -1));
           //console.log(args.id);
         //   String(message);
         //   console.log("Message Starts here");
@@ -47,7 +47,7 @@ class TwittertrackCommand extends Command {
                 for(var prop in data['statuses']){
                     console.log(data['statuses'][prop].id);
                     const params = {
-                        'query': 'from:$args[\'twitter\']',
+                        'query': 'from: $args[\'twitter\']',
                         'since':'2022-06-20'
                     };
 
