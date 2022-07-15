@@ -44,8 +44,10 @@ class TwittertrackCommand extends Command {
           // screen_name:"localcultureart" fields=public_metrics
           console.log(handle);
           T.get('search/tweets', {q:`from: ${handle}  since: ${date}` , count: 100 }, function(err, data, response) {
+            console.log(data['statuses']);
+            console.log(data);
             console.log(data.entities, data.user
-                ,typeof(data),   Object.keys(data).length)
+                ,typeof(data),   Object.keys(data).length);
                 for(var prop in data['statuses']){
                     //console.log(data);
                     console.log(data['statuses']);
