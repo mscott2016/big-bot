@@ -35,22 +35,22 @@ class TwittertrackCommand extends Command {
             strictSSL: true,
           });
           let handle=args['twitter'].replace('@', '');
-          let datetime = '2022-06-20';
+          let date = '2022-06-20';
           //console.log(args.id);
         //   String(message);
         //   console.log("Message Starts here");
         //   console.log(JSON.parse(message.innerText));
         //   console.log(typeof(message));
           // screen_name:"localcultureart" fields=public_metrics
-          T.get('search/tweets', {q:"from:"+`${handle}` +"since:"+`${datetime}` , count: 100 }, function(err, data, response) {
+          T.get('search/tweets', {q:`from: ${handle}  since: ${date}` , count: 100 }, function(err, data, response) {
             console.log(data.entities, data.user
                 ,typeof(data),   Object.keys(data).length)
                 for(var prop in data['statuses']){
                     console.log(data['statuses'][prop].id);
-                    const params = {
-                        'query': `from: ${handle}`,
-                        'since':'2022-06-20'
-                    };
+                    // const params = {
+                    //     'query': `from: ${handle}`,
+                    //     'since':'2022-06-20'
+                    // };
 
                     // let url = `https://api.twitter.com/2/tweets/${data['statuses'][prop].id}?tweet.fields=public_metrics,non_public_metrics`;
                     // const res = await needle('get', url, params, {
