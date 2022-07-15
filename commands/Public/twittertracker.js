@@ -35,7 +35,7 @@ class TwittertrackCommand extends Command {
             strictSSL: true,
           });
           console.log(args['twitter']);
-          console.log(args.id);
+          //console.log(args.id);
         //   String(message);
         //   console.log("Message Starts here");
         //   console.log(JSON.parse(message.innerText));
@@ -47,7 +47,7 @@ class TwittertrackCommand extends Command {
                 for(var prop in data['statuses']){
                     console.log(data['statuses'][prop].id);
                     const params = {
-                        'query': 'from:localcultureart ',
+                        'query': 'from:$args[\'twitter\']',
                         'since':'2022-06-20'
                     };
 
