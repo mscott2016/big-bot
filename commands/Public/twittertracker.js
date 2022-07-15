@@ -34,6 +34,7 @@ class TwittertrackCommand extends Command {
             timeout_ms: 60 * 1000,
             strictSSL: true,
           });
+          console.log(args['twitter']);
           console.log(args.id);
         //   String(message);
         //   console.log("Message Starts here");
