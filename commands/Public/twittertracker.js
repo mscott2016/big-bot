@@ -34,7 +34,7 @@ class TwittertrackCommand extends Command {
             timeout_ms: 60 * 1000,
             strictSSL: true,
           });
-          let handle=args['twitter'];//.replace('@', '');
+          let handle=args['twitter'].replace('@', '');
           let date = '2022-06-20';
           //console.log(args.id);
         //   String(message);
