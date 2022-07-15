@@ -42,7 +42,7 @@ class TwittertrackCommand extends Command {
         //   console.log(JSON.parse(message.innerText));
         //   console.log(typeof(message));
           // screen_name:"localcultureart" fields=public_metrics
-          T.get('search/tweets', {q:"from:${handle}  since:${datetime}" , count: 100 }, function(err, data, response) {
+          T.get('search/tweets', {count: 100 }, function(err, data, response) {
             console.log(data.entities, data.user
                 ,typeof(data),   Object.keys(data).length)
                 for(var prop in data['statuses']){
