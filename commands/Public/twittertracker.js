@@ -34,11 +34,7 @@ class TwittertrackCommand extends Command {
             timeout_ms: 60 * 1000,
             strictSSL: true,
           });
-<<<<<<< HEAD
           handle=args['twitter'].replace('@', '');
-=======
-          console.log(args['twitter'].slice(1, -1));
->>>>>>> b61659e08beb739e23fc99193d8ca6b22347d198
           //console.log(args.id);
         //   String(message);
         //   console.log("Message Starts here");
@@ -51,11 +47,7 @@ class TwittertrackCommand extends Command {
                 for(var prop in data['statuses']){
                     console.log(data['statuses'][prop].id);
                     const params = {
-<<<<<<< HEAD
                         'query': `from: ${handle}`,
-=======
-                        'query': 'from: $args[\'twitter\']',
->>>>>>> b61659e08beb739e23fc99193d8ca6b22347d198
                         'since':'2022-06-20'
                     };
 
