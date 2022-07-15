@@ -26,6 +26,7 @@ class TwittertrackCommand extends Command {
 
     async exec(message, args){
         console.log(args.handle)
+        console.log(args.twitter)
         const T = new Twit({
             consumer_key: `${process.env['TWITCONKEY']}`,
             consumer_secret: `${process.env['TWITCONSEC']}`,
