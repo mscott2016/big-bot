@@ -18,13 +18,14 @@ class TwittertrackCommand extends Command {
             },
             args: [
                 {
-                    id: 'twitter'
+                    handle: 'twitter'
                 }
             ]
         });
     }
 
-    async exec(message){
+    async exec(message, args){
+        console.log(args.handle)
         const T = new Twit({
             consumer_key: `${process.env['TWITCONKEY']}`,
             consumer_secret: `${process.env['TWITCONSEC']}`,
