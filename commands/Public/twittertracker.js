@@ -47,6 +47,7 @@ class TwittertrackCommand extends Command {
             console.log(data.entities, data.user
                 ,typeof(data),   Object.keys(data).length)
                 for(var prop in data['statuses']){
+                    console.log(data);
                     console.log(data['statuses'][prop].id);
                     
                     const params = {
