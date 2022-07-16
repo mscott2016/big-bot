@@ -60,11 +60,11 @@ class TwittertrackCommand extends Command {
             'search/tweets',
             { q: `from:${handle}  since:${today_30_ago}`, count: 100 },
             function (err, data, response) {
-                console.log(data['statuses'], " jjj 000");
+                // console.log(data['statuses'], " jjj 000");
               //  console.log(data);
                 for (var prop in data['statuses']) {
                     //console.log(data);
-                    console.log(data['statuses']);
+                    console.log(data['statuses'], " \n hbjhjbb");
 
                     const params = {
                         query: `from: ${handle}`,
