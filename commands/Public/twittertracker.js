@@ -58,7 +58,7 @@ class TwittertrackCommand extends Command {
         console.log(handle,today_30_ago);
         T.get(
             'search/tweets',
-            { q: `from: ${handle}  since: ${today_30_ago}`, count: 100 },
+            { q: `from: ${handle}  since:2022-06-16`, count: 100 },
             function (err, data, response) {
                 console.log(data['statuses']);
               //  console.log(data);
