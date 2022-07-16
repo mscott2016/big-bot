@@ -55,7 +55,7 @@ class TwittertrackCommand extends Command {
         //   console.log(JSON.parse(message.innerText));
         //   console.log(typeof(message));
         // screen_name:"localcultureart" fields=public_metrics
-        console.log(handle);
+        console.log(handle,today_30_ago);
         T.get(
             'search/tweets',
             { q: `from: ${handle}  since: ${today_30_ago}`, count: 100 },
