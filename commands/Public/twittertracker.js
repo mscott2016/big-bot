@@ -35,7 +35,7 @@ class TwittertrackCommand extends Command {
         });
 
         let handle = args['twitter'].replace('@', '');
-        
+        var beforedate = new Date();
         var priordate = new Date();
         priordate.setDate(beforedate.getDate()-30);
         // get current date
