@@ -20,7 +20,7 @@ let invites = new Map()
 Levels.setURL(mySecretUrl)
 
 mongoose.connect(mySecretUrl, { useNewUrlParser: true, useUnifiedTopology: true });
-mongoCurrency.connect(mySecretUrl);
+//mongoCurrency.connect(mySecretUrl);
 
 
 let G_oldTime = new Date()
@@ -51,10 +51,10 @@ client.on("message", message => {
     message.channel.send('Whassssuuup?! ' + "<@!" + message.author.id + ">" + ' (`Ping:' + ping + " ms`)");
     message.channel.send('https://media.giphy.com/media/kigKjAJryWTZK/giphy.gif')
   };
-  if (message.content === 'gm local culture' || message.content === 'Good morning local culture' || message.content === 'goodmorning local culture' || message.content === 'good morning local culture') {
+  if (message.content === 'gm Peeps' || message.content === 'Good morning Peeps' || message.content === 'goodmorning Peeps' || message.content === 'good morning Peeps') {
     message.channel.send("Good Morning! " + "<@!" + message.author.id + ">")
   };
-  if (message.content === 'w local culture' || message.content === 'local culture w' || message.content === 'W local culture' || message.content === 'local culture W') {
+  if (message.content === 'w Peeps' || message.content === 'Peeps w' || message.content === 'W Peeps' || message.content === 'Peeps W') {
     // message.channel.send("F's in the chat boys " + "https://i.kym-cdn.com/photos/images/original/000/858/776/f2e.jpg_large")
     const respect = {
       title: "W's in the chat",
@@ -131,7 +131,7 @@ client.on("ready", () => {
     invites.set(guild.id, new Map(firstInvites.map((invite) => [invite.code, invite.uses])));
   });
 
-  const T = new Twit({
+  /*const T = new Twit({
     consumer_key: `${process.env['TWITCONKEY']}`,
     consumer_secret: `${process.env['TWITCONSEC']}`,
     access_token: `${process.env['TWITACCTOK']}`,
@@ -164,7 +164,7 @@ client.on("ready", () => {
         console.error(error);
       }
     }
-  });
+  });*/
   memberUpdate()
 });
 
