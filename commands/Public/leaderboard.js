@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 const chalk = require('chalk');
 const Canvacord = require('canvacord');
 const Levels = require("discord-xp");
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, AttachmentBuilder } = require('discord.js');
 const Discordvv = require('../../schemas/db-setup.js');
 
 class LeaderBoardCommand extends Command {
@@ -90,12 +90,11 @@ class LeaderBoardCommand extends Command {
 
   }
 
-      const embed = new MessageEmbed().setColor('PURPLE');
-      const attachment = new Discord.MessageAttachment('./commands/Public/local-culture-logosNOBGglobe-icon-white.png', 'local-culture-logosNOBGglobe-icon-white.png');
+      const embed = new EmbedBuilder().setColor('Purple');
+      const attachment = new AttachmentBuilder('./commands/Public/local-culture-logosNOBGglobe-icon-white.png', { name: 'local-culture-logosNOBGglobe-icon-white.png' });
       embed.setTitle('THE LEADERS');
-      embed.attachFiles(attachment)
       embed.setThumbnail('attachment://local-culture-logosNOBGglobe-icon-white.png');
-      embed.addField('NAME\t\tLEVEL\t\tINVITES \t\t XP', '\u200b', true);
+      embed.addFields({ name: 'NAME\t\tLEVEL\t\tINVITES \t\t XP', value: '\u200b', inline: true });
 
     for (const peeps of usersl) {
       if  ((! use_learders ) && !(admins.includes(`${peeps.userID}`)) ){

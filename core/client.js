@@ -4,6 +4,10 @@ const {
     CommandHandler,
     ListenerHandler
 } = require('discord-akairo');
+const { 
+    GatewayIntentBits, 
+    Partials 
+} = require('discord.js');
 const { ownerID, defaultPrefix } = require('../config.js');
 const db = require('quick.db'); 
 const Utils = require('./utils.js');
@@ -15,7 +19,21 @@ module.exports = class Stonks extends AkairoClient {
     constructor() {
         super(
             {
-                ownerID
+                ownerID,
+                intents: [
+                    GatewayIntentBits.Guilds,
+                    GatewayIntentBits.GuildMessages,
+                    GatewayIntentBits.GuildMembers,
+                    GatewayIntentBits.MessageContent,
+                    GatewayIntentBits.GuildInvites,
+                    GatewayIntentBits.GuildPresences
+                ],
+                partials: [
+                    Partials.Channel,
+                    Partials.Message,
+                    Partials.User,
+                    Partials.GuildMember
+                ]
             },
             {
                 disableEveryone: true

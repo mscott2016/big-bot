@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { Listener } = require('discord-akairo');
-const Twit = require('twit');
+// Twitter API v2 - will be configured in individual files as needed
 
 
 

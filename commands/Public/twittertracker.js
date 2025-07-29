@@ -1,8 +1,8 @@
 const { Command } = require('discord-akairo');
 const fetch = require('node-fetch');
-const Discord = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const chalk = require('chalk');
-const Twit = require('twit');
+const { TwitterApi } = require('twitter-api-v2');
 
 //const  Discordvv  = require('../../schemas/db-setup.js'); database
 
@@ -24,77 +24,74 @@ class TwittertrackCommand extends Command {
     }
 
     async exec(message, args) {
-        console.log(args);
-        const T = new Twit({
-            consumer_key: `${process.env['TWITCONKEY']}`,
-            consumer_secret: `${process.env['TWITCONSEC']}`,
-            access_token: `${process.env['TWITACCTOK']}`,
-            access_token_secret: `${process.env['TIWTACCSEC']}`,
-            timeout_ms: 60 * 1000,
-            strictSSL: true
-        });
+        if (!args.twitter) {
+            return message.channel.send('Please provide a Twitter handle to track. Usage: `lca twittrack @username`');
+        }
 
-        let handle = args['twitter'].replace('@', '');
-        var beforedate = new Date();
-        var priordate = new Date();
-        priordate.setDate(beforedate.getDate()-30);
-        // get current date
-        // adjust 0 before single digit date
-        let date = ('0' + priordate.getDate()).slice(-2);
+        try {
+            // Initialize Twitter API v2 client
+            const client = new TwitterApi({
+                appKey: process.env['TWITCONKEY'],
+                appSecret: process.env['TWITCONSEC'],
+                accessToken: process.env['TWITACCTOK'],
+                accessSecret: process.env['TIWTACCSEC'],
+            });
 
-        // get current month
-        let month = ('0' + (priordate.getMonth() + 1)).slice(-2);
+            let handle = args.twitter.replace('@', '');
+            console.log(chalk.green(`Twitter tracking requested by ${chalk.yellow(message.author.username)} for ${chalk.cyan(handle)}`));
 
-        // get current year
-        let year = priordate.getFullYear();
+            // Get user by username
+            const user = await client.v2.userByUsername(handle, {
+                'user.fields': ['public_metrics', 'description', 'profile_image_url', 'verified']
+            });
 
-        let today_30_ago =`${year}-${month}-${date}`;
-        //console.log(args.id);
-        //   String(message);
-        //   console.log("Message Starts here");
-        //   console.log(JSON.parse(message.innerText));
-        //   console.log(typeof(message));
-        // screen_name:"localcultureart" fields=public_metrics
-        console.log(handle,today_30_ago);
-        T.get(
-            'search/tweets',
-            { q: `from:${handle}  since:${today_30_ago}`, count: 100 },
-            function (err, data, response) {
-                // console.log(data['statuses'], " jjj 000");
-              //  console.log(data);
-                for (var prop in data['statuses']) {
-                    //console.log(data);
-                    console.log(data['statuses'], " \n hbjhjbb");
-
-                    const params = {
-                        query: `from: ${handle}`,
-                        since: `${date}`
-                    };
-
-                    // let url = `https://api.twitter.com/2/tweets/${data['statuses'][prop].id}?tweet.fields=public_metrics,non_public_metrics`;
-                    // const res = await needle('get', url, params, {
-                    //     headers: {
-                    //         "User-Agent": "v2RecentSearchJS",
-                    //         "authorization": `Bearer ${process.env['beart']}`
-                    //     }
-                    // })
-
-                    // if (res.body) {
-                    //     console.log(res.body, res);
-                    // } else {
-                    //     throw new Error('Unsuccessful request');
-                    // }
-                    // let headeroauth = OAuth1(consumer_key, consumer_secret,access_token, access_token_secret, signature_type='auth_header')
-                    // let r = requests.get(url, auth=headeroauth)
-
-                    // console.log(r.json())
-                }
+            if (!user.data) {
+                return message.channel.send(`❌ User @${handle} not found.`);
             }
-        );
 
-        //    const channel = message.client.channels.cache.get('935671934488830013');
-        //935671934488830013
-        //channel.send(atta)
+            // Get recent tweets (last 30 days)
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+            
+            const tweets = await client.v2.userTimeline(user.data.id, {
+                max_results: 100,
+                'tweet.fields': ['public_metrics', 'created_at', 'text'],
+                start_time: thirtyDaysAgo.toISOString()
+            });
+
+            // Calculate metrics
+            let totalLikes = 0;
+            let totalRetweets = 0;
+            let totalReplies = 0;
+            let totalQuotes = 0;
+
+            if (tweets.data) {
+                tweets.data.forEach(tweet => {
+                    totalLikes += tweet.public_metrics.like_count;
+                    totalRetweets += tweet.public_metrics.retweet_count;
+                    totalReplies += tweet.public_metrics.reply_count;
+                    totalQuotes += tweet.public_metrics.quote_count;
+                });
+            }
+
+            const embed = new EmbedBuilder()
+                .setColor('Blue')
+                .setTitle(`🐦 Twitter Analytics for @${handle}`)
+                .setThumbnail(user.data.profile_image_url)
+                .addFields(
+                    { name: '👤 User Info', value: `**Name:** ${user.data.name}\n**Verified:** ${user.data.verified ? '✅' : '❌'}\n**Followers:** ${user.data.public_metrics.followers_count.toLocaleString()}`, inline: true },
+                    { name: '📊 30-Day Activity', value: `**Tweets:** ${tweets.data ? tweets.data.length : 0}\n**Likes:** ${totalLikes.toLocaleString()}\n**Retweets:** ${totalRetweets.toLocaleString()}`, inline: true },
+                    { name: '📈 Engagement', value: `**Replies:** ${totalReplies.toLocaleString()}\n**Quotes:** ${totalQuotes.toLocaleString()}\n**Avg Likes/Tweet:** ${tweets.data && tweets.data.length > 0 ? Math.round(totalLikes / tweets.data.length) : 0}`, inline: true }
+                )
+                .setFooter({ text: 'Data from Twitter API v2', iconURL: 'https://abs.twimg.com/responsive-web/client-web/icon-ios.b1fc727a.png' })
+                .setTimestamp();
+
+            message.channel.send({ embeds: [embed] });
+
+        } catch (error) {
+            console.error('Twitter API Error:', error);
+            message.channel.send('❌ Error fetching Twitter data. Please check the handle and try again.');
+        }
     }
 }
 module.exports = TwittertrackCommand;

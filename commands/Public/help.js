@@ -1,6 +1,6 @@
 const { stripIndents } = require('common-tags');
 const { Command } = require('discord-akairo');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const e = require('express');
 
 class HelpCommand extends Command {
@@ -25,31 +25,24 @@ class HelpCommand extends Command {
 
     exec(message, { command }) {
         const prefix = this.handler.prefix;
-        const embed = new MessageEmbed().setColor('PURPLE');
+        const embed = new EmbedBuilder().setColor('Purple');
 
         if (command) {
             embed
-                .setColor('PURPLE')
-                .addField(
-                    '❯ Description:',
-                    command.description.content || 'No Description provided'
-                )
-                .addField(
-                    '❯ Usage:',
-                    `\`lca ${command.aliases[0]} ${command.description.usage ? command.description.usage : ''
-                    }\``
+                .setColor('Purple')
+                .addFields(
+                    { name: '❯ Description:', value: command.description.content || 'No Description provided' },
+                    { name: '❯ Usage:', value: `\`lca ${command.aliases[0]} ${command.description.usage ? command.description.usage : ''}\`` }
                 );
 
             if (command.aliases.length > 1) {
-                embed.addField('❯ Aliases Available:', `\`${command.aliases.join('`, `')}\``);
+                embed.addFields({ name: '❯ Aliases Available:', value: `\`${command.aliases.join('`, `')}\`` });
             }
             if (command.description.examples && command.description.examples.length) {
-                embed.addField(
-                    '❯ Example:',
-                    `\`${command.aliases[0]} ${command.description.examples.join(
-                        `\`\n\`${command.aliases[0]} `
-                    )}\``
-                );
+                embed.addFields({ 
+                    name: '❯ Example:', 
+                    value: `\`${command.aliases[0]} ${command.description.examples.join(`\`\n\`${command.aliases[0]} `)}\`` 
+                });
             }
         } else {
             embed
@@ -61,10 +54,10 @@ class HelpCommand extends Command {
                     The prefix for ${this.client.user.username} is \`lca\`
                     The commands usage is generally \`lca <command> <parameter>\``
                 )
-                .setFooter(
-                    'For more info on a command, use lca help <command>',
-                    this.client.user.displayAvatarURL()
-                );
+                .setFooter({
+                    text: 'For more info on a command, use lca help <command>',
+                    iconURL: this.client.user.displayAvatarURL()
+                });
 
             for (const category of this.handler.categories.values()) {
              if (category.id === 'Utilities' || category.id === 'Developer Commands')
@@ -74,18 +67,18 @@ class HelpCommand extends Command {
 
              }
               
-                embed.addField(
-                    `❯ ${category.id.replace(/(\b\w)/gi, (lc) =>
-                        lc.toUpperCase())}:`,
-                    `${category
+                embed.addFields({
+                    name: `❯ ${category.id.replace(/(\b\w)/gi, (lc) => lc.toUpperCase())}:`,
+                    value: `${category
                         .filter((cmd) => cmd.aliases.length > 0)
                         .map((cmd) => `\`${cmd.aliases[0]}\``)
                         .join(' , ')}`
-                );
+                });
             }
-            embed.addField(`__Nexus__`, [
-                `[website](https://localculture.art) | [tiktok](https://vm.tiktok.com/TTPdhaSvLF/) | [twitter](https://twitter.com/localcultureart) |`
-            ]);
+            embed.addFields({
+                name: `__Nexus__`,
+                value: `[website](https://localculture.art) | [tiktok](https://vm.tiktok.com/TTPdhaSvLF/) | [twitter](https://twitter.com/localcultureart) |`
+            });
             // embed.addField("Field title", "Your text here: [link](http://example.com)")
             // embed.addField(`\`Notice:\` The \`mc\` command has been fixed! try it`)
 

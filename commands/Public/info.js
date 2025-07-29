@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const chalk = require('chalk');
-var S = require('string');
+// Removed string package - using native JavaScript methods instead
 
 
 

@@ -8,9 +8,8 @@ const mySecret = process.env['TOKEN']
 const Levels = require("discord-xp");
 const mongoose = require('mongoose');
 const mongoCurrency = require('discord-mongo-currency');
-//const disbut = require('discord-buttons');
-//disbut(client);
-const Twit = require('twit');
+
+// Twitter API v2 - will be configured in individual files as needed
 const mySecretUrl = process.env['CONNECTION_URL']
 //const { DiscordXpP: level} = require('./schemas/db-setup.js');
 const  Discordvv  = require('./schemas/db-setup.js');
@@ -31,7 +30,7 @@ client.login(mySecret);
 console.log("eiei32wh")
 
 client.on("guildCreate", guild => {
-  const channels = guild.channels.cache.filter(channel => channel.type == "text");
+  const channels = guild.channels.cache.filter(channel => channel.type === 0); // 0 = GUILD_TEXT in v14
 
   channels.first().send("Hello there, thanks for adding me! Get a list of commands and their usage with `lca help`.\n" +
     "\nIf you ever need help or have suggestions, please don't hesitate to leave a comment in the support chat! " +
@@ -64,7 +63,7 @@ client.on("message", message => {
         url: 'https://memegenerator.net/img/instances/81758796.jpg',
       },
     };
-    message.channel.send({ embed: respect });
+    message.channel.send({ embeds: [respect] });
   };
 
   function exLI(message) {
