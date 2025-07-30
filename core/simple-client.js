@@ -10,9 +10,7 @@ class SimpleClient extends Client {
             intents: [
                 GatewayIntentBits.Guilds,
                 GatewayIntentBits.GuildMessages,
-                GatewayIntentBits.GuildMembers,
                 GatewayIntentBits.GuildInvites,
-                GatewayIntentBits.GuildPresences
             ],
             partials: [
                 Partials.Channel,
