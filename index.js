@@ -21,6 +21,21 @@ let invites = new Map()
 
 // mongoose.connect(mySecretUrl, { useNewUrlParser: true, useUnifiedTopology: true }); // COMMENTED OUT: Not needed
 //mongoCurrency.connect(mySecretUrl);
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Simple health check endpoint
+app.get('/', (req, res) => {
+    res.json({ status: 'Bot is running', uptime: process.uptime() });
+});
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
+
 async function fetchMessage() {
   try {
       let channel = client.channels.cache.get('1399002994862850150');
