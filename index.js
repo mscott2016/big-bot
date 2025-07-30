@@ -21,6 +21,22 @@ let invites = new Map()
 
 // mongoose.connect(mySecretUrl, { useNewUrlParser: true, useUnifiedTopology: true }); // COMMENTED OUT: Not needed
 //mongoCurrency.connect(mySecretUrl);
+async function fetchMessage() {
+  try {
+      let channel = client.channels.cache.get('1399002994862850150');
+      
+      // If not in cache, try to fetch it
+      if (!channel) {
+          channel = await client.channels.fetch('1399002994862850150');
+      }
+      
+      const message = await channel.messages.fetch("1399004143510749285");
+      // Handle your message here
+      
+  } catch (error) {
+      console.error('Error fetching channel or message:', error.message);
+  }
+}
 
 
 let G_oldTime = new Date()
@@ -113,8 +129,8 @@ client.on("message", message => {
 
 client.on("ready", () => {
   
-  
-  client.channels.cache.get('935648492326649857').messages.fetch("963860501752852560").then(msg => {
+  fetchMessage()
+  /*client.channels.cache.get('1399002994862850150').messages.fetch("963860501752852560").then(msg => {
     let totalReactionsCount = msg.reactions.cache.map(reaction => reaction.count).reduce(function(tot, arr) {
       
       console.log(`heyr boy  -- ${tot + arr}`);
@@ -122,7 +138,7 @@ client.on("ready", () => {
     },0);
     console.log(` done-- ${totalReactionsCount}`);
     
-  });
+  });*/
   
   
   //setInterval(timeChecker, 86400000);
