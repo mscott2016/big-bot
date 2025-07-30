@@ -1,14 +1,16 @@
-const { Structures, Guild } = require('discord.js');
+const { Guild } = require('discord.js');
 const { defaultPrefix } = require('../config.js');
 
-// Returns the Guild prefix
+// Returns the Guild prefix - simplified to just return default prefix
 // <Guild>.prefix
 Object.defineProperty(Guild.prototype, 'prefix', {
     get() {
-        return this.get('prefix', defaultPrefix);
+        return defaultPrefix; // Simplified - just return default prefix
     }
 });
 
+// COMMENTED OUT: Database functionality not needed for basic bot operation
+/*
 // The following methods are all namespaced by Guild ID.
 // Examples:
 // <Guild>.get('loggingChannelID', [fallback]);
@@ -24,3 +26,4 @@ Guild.prototype.set = function(key, data) {
 Guild.prototype.delete = function(key) {
     return this.client.db.delete(`${this.id}_${key}`);
 };
+*/

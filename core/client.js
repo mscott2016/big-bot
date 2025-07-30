@@ -9,17 +9,20 @@ const {
     Partials 
 } = require('discord.js');
 const { ownerID, defaultPrefix } = require('../config.js');
-const db = require('quick.db'); 
+// const db = require('quick.db'); // COMMENTED OUT: Database not needed
 const Utils = require('./utils.js');
 
 require('../structures/Guild.js');
-require('../structures/GuildMember.js');
+// require('../structures/GuildMember.js'); // COMMENTED OUT: Structure extensions disabled
 
 module.exports = class Stonks extends AkairoClient {
     constructor() {
         super(
             {
                 ownerID,
+                disableEveryone: true
+            },
+            {
                 intents: [
                     GatewayIntentBits.Guilds,
                     GatewayIntentBits.GuildMessages,
@@ -34,9 +37,6 @@ module.exports = class Stonks extends AkairoClient {
                     Partials.User,
                     Partials.GuildMember
                 ]
-            },
-            {
-                disableEveryone: true
             }
         );
 
@@ -51,7 +51,7 @@ module.exports = class Stonks extends AkairoClient {
             directory: path.join(__dirname, '..', 'listeners/')
         });
        
-        this.db = db;
+        // this.db = db; // COMMENTED OUT: Database not needed
         this.Utils = new Utils(this);
     }
 

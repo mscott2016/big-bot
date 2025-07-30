@@ -1,25 +1,25 @@
  require('dotenv').config();
-const { Command } = require('discord-akairo');
-const Stonks = require('./core/client.js');
-const client = new Stonks();
-const Database = require("@replit/database");
-const db = new Database();
+// const { Command } = require('discord-akairo'); // COMMENTED OUT: Using simple client instead
+const SimpleClient = require('./core/simple-client.js');
+const client = new SimpleClient();
+// const Database = require("@replit/database"); // COMMENTED OUT: Not needed
+// const db = new Database(); // COMMENTED OUT: Not needed
 const mySecret = process.env['TOKEN']
-const Levels = require("discord-xp");
-const mongoose = require('mongoose');
-const mongoCurrency = require('discord-mongo-currency');
+// const Levels = require("discord-xp"); // COMMENTED OUT: Module not found
+// const mongoose = require('mongoose'); // COMMENTED OUT: Not needed for basic bot
+// const mongoCurrency = require('discord-mongo-currency'); // COMMENTED OUT: Not needed
 
 // Twitter API v2 - will be configured in individual files as needed
-const mySecretUrl = process.env['CONNECTION_URL']
+// const mySecretUrl = process.env['CONNECTION_URL'] // COMMENTED OUT: Not needed
 //const { DiscordXpP: level} = require('./schemas/db-setup.js');
-const  Discordvv  = require('./schemas/db-setup.js');
-const level = new Discordvv();
-console.log(Discordvv)
-Discordvv.setURL(mySecretUrl)
+// const  Discordvv  = require('./schemas/db-setup.js'); // COMMENTED OUT: Not needed
+// const level = new Discordvv(); // COMMENTED OUT: Not needed
+// console.log(Discordvv) // COMMENTED OUT: Not needed
+// Discordvv.setURL(mySecretUrl) // COMMENTED OUT: Not needed
 let invites = new Map()
-Levels.setURL(mySecretUrl)
+// Levels.setURL(mySecretUrl) // COMMENTED OUT: Not needed
 
-mongoose.connect(mySecretUrl, { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect(mySecretUrl, { useNewUrlParser: true, useUnifiedTopology: true }); // COMMENTED OUT: Not needed
 //mongoCurrency.connect(mySecretUrl);
 
 
@@ -66,6 +66,8 @@ client.on("message", message => {
     message.channel.send({ embeds: [respect] });
   };
 
+  // COMMENTED OUT: XP functions depend on database operations
+  /*
   function exLI(message) {
     const randomNumber = Math.floor(Math.random() * 10) + 15;
     const ee = Levels.appendXp(message.author.id, message.guild.id, randomNumber);
@@ -104,6 +106,7 @@ client.on("message", message => {
       message.channel.send(`Congrats ${message.author}, you leveled up, you are now level ${newLevel}`)
     }
   }
+  */
 
 
 });
@@ -176,8 +179,15 @@ client.on('guildMemberAdd',  member => {
   // To compare, we need to load the current invite list.
   if (member.user.bot){
     memberUpdate();
-  return;
-}
+    return;
+  }
+  
+  // SIMPLIFIED: Basic member join logging without database operations
+  console.log(`${member.user.tag} joined ${member.guild.name}`);
+  memberUpdate();
+  
+  // COMMENTED OUT: Complex invite tracking with database operations
+  /*
   member.guild.fetchInvites().then(async (newInvites) => {
     // This is the *existing* invites for the guild.
     
@@ -205,6 +215,7 @@ client.on('guildMemberAdd',  member => {
       ? logChannel.send(`${member.user.tag} was invited by ${inviter.tag}. `)
       : logChannel.send(`${member.user.tag} joined but I couldn't find through which invite.`);
   });
+  */
 });
 
 function qotd() {  // question of the day

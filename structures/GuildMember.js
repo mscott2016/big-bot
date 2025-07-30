@@ -1,3 +1,7 @@
+// COMMENTED OUT: Structures.extend() is deprecated in Discord.js v14
+// Database functionality not needed for basic bot operation
+
+/*
 const { Structures } = require('discord.js');
 
 Structures.extend('GuildMember', GuildMember => {
@@ -37,3 +41,4 @@ Structures.extend('GuildMember', GuildMember => {
 
     return GuildMemberExt;
 });
+*/
