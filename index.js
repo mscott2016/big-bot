@@ -199,11 +199,11 @@ client.on("ready", () => {
       }
     }
   });*/
-  memberUpdate()
+ // memberUpdate()
 });
 
 client.on('guildMemberRemove',  member => {
-   memberUpdate()
+   //memberUpdate()
 });
 
 client.on('guildMemberAdd',  member => {
@@ -215,7 +215,7 @@ client.on('guildMemberAdd',  member => {
   
   // SIMPLIFIED: Basic member join logging without database operations
   console.log(`${member.user.tag} joined ${member.guild.name}`);
-  memberUpdate();
+  //memberUpdate();
   
   // COMMENTED OUT: Complex invite tracking with database operations
   /*
