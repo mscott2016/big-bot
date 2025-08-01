@@ -160,9 +160,9 @@ client.on("ready", () => {
   setInterval(memberUpdate, 10000);
   client.guilds.cache.forEach(async (guild) => {
     // Fetch all Guild Invites
-    const firstInvites = await guild.fetchInvites();
+    //const firstInvites = await guild.fetchInvites();
     // Set the key as Guild ID, and create a map which has the invite code, and the number of uses
-    invites.set(guild.id, new Map(firstInvites.map((invite) => [invite.code, invite.uses])));
+   // invites.set(guild.id, new Map(firstInvites.map((invite) => [invite.code, invite.uses])));
   });
 
   /*const T = new Twit({
